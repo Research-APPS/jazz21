@@ -1,0 +1,7 @@
+music21>=9.0
+
+[dev]
+pytest>=7.0
+
+[guitar]
+fretsy>=0.1.0

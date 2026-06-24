@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: jazz21
+Version: 0.1.0
+Summary: Jazz and lead-sheet notation layer on top of music21
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: music21>=9.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+Provides-Extra: guitar
+Requires-Dist: fretsy>=0.1.0; extra == "guitar"
+
+# jazz21
+
+**jazz21** is a Python library for jazz and lead-sheet notation built **on top of [music21](https://pypi.org/project/music21/)**. It is not a replacement for music21.
+
+music21 provides harmonic analysis, `ChordSymbol`, roman numerals, MusicXML, and MIDI. jazz21 adapts that stack to real-world jazz and American chord spelling, lead-sheet syntax (`%`, `/`, bar lines), inversion cycling, and (in later versions) guitar CAGED diagrams.
+
+## Install
+
+```bash
+pip install -e .
+```
+
+Requires Python 3.10+ and music21 9+.
+
+## Quick example
+
+```python
+from jazz21.notation import (
+    american_chord_to_music21_figure,
+    parse_progression_to_musicxml,
+)
+
+american_chord_to_music21_figure("Bbmaj9/D")  # → music21 figure
+out = parse_progression_to_musicxml("| Dm7 | G7 | Cmaj7 |", title="ii-V-I")
+print(out["musicxml"][:200])
+```
+
+## Relationship to CHORDIA
+
+[CHORDIA](https://github.com/) uses jazz21 as its composition engine. The Django app is a client: UI, collections, and guitar views live in CHORDIA; notation logic lives here.
+
+## License
+
+MIT (align with your project policy).
