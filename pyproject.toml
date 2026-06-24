@@ -13,6 +13,9 @@ dependencies = [
     "music21>=9.0",
 ]
 
+[tool.setuptools]
+license-files = ["LICENSE"]
+
 [project.optional-dependencies]
 dev = [
     "pytest>=7.0",

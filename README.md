@@ -1,16 +1,42 @@
 # jazz21
 
+[![CI](https://github.com/Research-APPS/jazz21/actions/workflows/ci.yml/badge.svg)](https://github.com/Research-APPS/jazz21/actions/workflows/ci.yml)
+
 **jazz21** is a Python library for jazz and lead-sheet notation built **on top of [music21](https://pypi.org/project/music21/)**. It is not a replacement for music21.
 
 music21 provides harmonic analysis, `ChordSymbol`, roman numerals, MusicXML, and MIDI. jazz21 adapts that stack to real-world jazz and American chord spelling, lead-sheet syntax (`%`, `/`, bar lines), inversion cycling, and (in later versions) guitar CAGED diagrams.
 
+## Requirements
+
+- Python 3.10+
+- `pip` 23+ recommended
+- `setuptools` 68+ and `wheel`
+
+Older packaging tools may fail on editable installs from `pyproject.toml`. If in doubt, upgrade them first.
+
 ## Install
 
+Development install with tests:
+
 ```bash
-pip install -e .
+python3.10 -m venv .venv
+source .venv/bin/activate
+python -m pip install -U pip setuptools wheel
+pip install -e ".[dev]"
 ```
 
-Requires Python 3.10+ and music21 9+.
+Optional guitar extra:
+
+```bash
+pip install -e ".[guitar]"
+```
+
+## Verify The Install
+
+```bash
+python -c "import jazz21; print(jazz21.__version__)"
+pytest -q
+```
 
 ## Modules
 
@@ -20,7 +46,17 @@ Requires Python 3.10+ and music21 9+.
 | `jazz21.symbols` | Chord symbol normalizer (canonical, intervals, MusicXML kind) |
 | `jazz21.guitar` | CAGED shapes catalog, SVG diagrams, resolve from chord metadata |
 
-## Quick example
+## API Overview
+
+| Entry point | Purpose | Returns |
+|-------------|---------|---------|
+| `american_chord_to_music21_figure(symbol)` | Convert American or jazz chord spelling into a `music21` chord figure | `str` |
+| `parse_progression_to_musicxml(text, title=...)` | Parse a lead-sheet progression and export MusicXML | `dict` |
+| `normalize_chord_symbol(symbol)` | Canonicalize a chord symbol and expose interval metadata | `dict | None` |
+| `attach_guitar_shapes_to_chords(chords)` | Attach SVG guitar diagrams to chord metadata in place | `list[dict]` |
+| `describe_chord(symbol)` | Produce a structured chord description for downstream publishing | `dict | None` |
+
+## Quick Examples
 
 ```python
 from jazz21.notation import (
@@ -34,7 +70,6 @@ print(out["musicxml"][:200])
 ```
 
 ```python
-from jazz21.guitar import ShapesCatalog
 from jazz21.guitar.resolve import attach_guitar_shapes_to_chords
 
 chords = [{"kind": "major-seventh", "root_pc": 0, "symbol": "Cmaj7", "flat_index": 0}]
@@ -42,10 +77,22 @@ attach_guitar_shapes_to_chords(chords)  # uses built-in CAGED seed
 print(chords[0]["guitar"]["svg"][:80])
 ```
 
+```python
+from jazz21 import describe_chord
+
+print(describe_chord("Aø7"))
+```
+
+## Project Status
+
+`jazz21` is early-stage but tested. The repository currently targets developers integrating notation, MusicXML, MIDI, or guitar-diagram generation into larger applications.
+
 ## Relationship to CHORDIA
 
-[CHORDIA](https://github.com/) uses jazz21 as its composition engine. The Django app is a client: UI, collections, and guitar views live in CHORDIA; notation logic lives here.
+CHORDIA uses jazz21 as its composition engine. The Django app is the client layer: UI, collections, and guitar views live there, while notation logic lives here.
+
+The CHORDIA repository is not public yet, so this project should be treated as the public library layer.
 
 ## License
 
-MIT (align with your project policy).
+Released under the [MIT License](LICENSE).
