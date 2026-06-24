@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>jazz21 · Biblioteca</title>
+  <link rel="stylesheet" href="css/biblioteca.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">jazz21 <span>· biblioteca</span></div>
+    <nav class="nav-links">
+      <a href="https://github.com/Research-APPS/jazz21" target="_blank" rel="noopener">GitHub</a>
+      <a href="spike.html">Spike</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Biblioteca jazz21</h1>
+      <p class="lead">
+        Guías interactivas en español: aprende Python en contexto y prueba la API de jazz21
+        en el navegador (Pyodide). La primera ejecución tarda ~10 s en cargar music21.
+      </p>
+    </section>
+
+    <p class="section-label">Aprender Python</p>
+    <div class="card-grid">
+      <a class="card" href="python/venv.html">
+        <h3>Entorno y venv</h3>
+        <p>Crear un entorno virtual e instalar jazz21 con pip.</p>
+        <span class="tag live">Disponible</span>
+      </a>
+      <a class="card" href="python/importar.html">
+        <h3>Importar y usar módulos</h3>
+        <p><code>import jazz21</code> y leer resultados en el navegador.</p>
+        <span class="tag live">Interactivo</span>
+      </a>
+      <a class="card" href="python/diccionarios.html">
+        <h3>Diccionarios y JSON</h3>
+        <p>Entender lo que devuelve <code>describe_chord</code>.</p>
+        <span class="tag live">Interactivo</span>
+      </a>
+    </div>
+
+    <p class="section-label">Módulos jazz21</p>
+    <div class="card-grid">
+      <a class="card" href="guias/acordes/describe-chord.html">
+        <h3>describe_chord</h3>
+        <p>Descripción estructurada de un símbolo de acorde.</p>
+        <span class="tag live">Interactivo</span>
+      </a>
+      <a class="card" href="guias/acordes/normalizar.html">
+        <h3>normalize_chord_symbol</h3>
+        <p>Canonicalización, intervalos y tipo MusicXML.</p>
+        <span class="tag live">Interactivo</span>
+      </a>
+      <a class="card" href="guias/notacion/progression.html">
+        <h3>Lead sheets → MusicXML</h3>
+        <p><code>parse_progression_to_musicxml</code>, barras y progresiones.</p>
+        <span class="tag live">Interactivo</span>
+      </a>
+      <a class="card" href="guias/notacion/inversiones.html">
+        <h3>Inversiones</h3>
+        <p>Ciclo de inversiones y slash chords.</p>
+        <span class="tag live">Interactivo</span>
+      </a>
+      <a class="card" href="guias/guitarra/diagramas.html">
+        <h3>Guitarra · SVG CAGED</h3>
+        <p><code>resolve_guitar_shapes</code> y diagramas embebidos.</p>
+        <span class="tag live">Interactivo</span>
+      </a>
+      <a class="card" href="guias/manifest/to-manifest.html">
+        <h3>to_manifest</h3>
+        <p>Lista de acordes para publicadores y SEO.</p>
+        <span class="tag live">Interactivo</span>
+      </a>
+      <a class="card" href="spike.html">
+        <h3>Spike Pyodide</h3>
+        <p>Diagnóstico técnico del runtime en el navegador.</p>
+        <span class="tag">Dev</span>
+      </a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    jazz21 · capa práctica sobre <a href="https://pypi.org/project/music21/">music21</a>
+  </footer>
+</body>
+</html>

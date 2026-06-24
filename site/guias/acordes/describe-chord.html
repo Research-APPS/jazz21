@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>describe_chord · jazz21</title>
+  <link rel="stylesheet" href="../../css/biblioteca.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">jazz21 <span>· biblioteca</span></div>
+    <nav class="nav-links"><a href="../../index.html">Inicio</a></nav>
+  </header>
+
+  <main class="guia-main">
+    <a class="back-link" href="../../index.html">← Biblioteca</a>
+    <h1><code>describe_chord</code></h1>
+    <p class="lead">
+      Punto de entrada de alto nivel: pasas un símbolo de acorde (estilo americano/jazz)
+      y recibes un diccionario listo para JSON, APIs o publicación web.
+    </p>
+
+    <div class="python-tip">
+      <strong>API:</strong> <code>jazz21.describe_chord(symbol: str) → dict | None</code>.
+      Devuelve <code>None</code> si el símbolo está vacío o no se reconoce.
+    </div>
+
+    <div class="playground" data-playground>
+      <div class="pg-toolbar">
+        <button type="button" class="pg-run">Ejecutar</button>
+        <button type="button" class="pg-reset pg-secondary">Reiniciar</button>
+        <span class="pg-status"></span>
+      </div>
+      <textarea class="pg-editor">import json
+import jazz21
+
+simbolo = "Aø7"
+d = jazz21.describe_chord(simbolo)
+print(json.dumps(d, indent=2, ensure_ascii=False))</textarea>
+      <p class="pg-output-label">Salida</p>
+      <pre class="pg-output"></pre>
+      <div class="pg-svg"></div>
+    </div>
+
+    <nav class="guia-nav">
+      <a href="../../python/diccionarios.html">← Diccionarios</a>
+      <a href="normalizar.html">Siguiente: normalizar →</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">jazz21 · acordes</footer>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
+  <script src="../../js/pyodide-playground.js"></script>
+</body>
+</html>

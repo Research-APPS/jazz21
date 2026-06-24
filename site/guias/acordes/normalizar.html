@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>normalize_chord_symbol · jazz21</title>
+  <link rel="stylesheet" href="../../css/biblioteca.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">jazz21 <span>· biblioteca</span></div>
+    <nav class="nav-links"><a href="../../index.html">Inicio</a></nav>
+  </header>
+
+  <main class="guia-main">
+    <a class="back-link" href="../../index.html">← Biblioteca</a>
+    <h1><code>normalize_chord_symbol</code></h1>
+    <p class="lead">
+      Normaliza alias y variantes de escritura a una forma canónica, con intervalos,
+      clases de altura y tipo MusicXML. Vive en <code>jazz21.symbols</code>.
+    </p>
+
+    <div class="python-tip">
+      <strong>Import:</strong>
+      <code>from jazz21.symbols import normalize_chord_symbol</code>.
+      Útil cuando solo necesitas metadatos harmónicos sin guitarra ni MusicXML.
+    </div>
+
+    <div class="playground" data-playground>
+      <div class="pg-toolbar">
+        <button type="button" class="pg-run">Ejecutar</button>
+        <button type="button" class="pg-reset pg-secondary">Reiniciar</button>
+        <span class="pg-status"></span>
+      </div>
+      <textarea class="pg-editor">from jazz21.symbols import normalize_chord_symbol
+
+variantes = ["C", "Amb57", "G7alt", "FΔ7"]
+for v in variantes:
+    r = normalize_chord_symbol(v)
+    if r is None:
+        print(v, "→ None")
+    else:
+        print(v, "→", r.get("canonical"), "| kind:", r.get("musicxml_kind"))</textarea>
+      <p class="pg-output-label">Salida</p>
+      <pre class="pg-output"></pre>
+      <div class="pg-svg"></div>
+    </div>
+
+    <nav class="guia-nav">
+      <a href="describe-chord.html">← describe_chord</a>
+      <a href="../notacion/progression.html">Siguiente: lead sheets →</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">jazz21 · acordes</footer>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
+  <script src="../../js/pyodide-playground.js"></script>
+</body>
+</html>

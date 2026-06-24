@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>to_manifest · jazz21</title>
+  <link rel="stylesheet" href="../../css/biblioteca.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">jazz21 <span>· biblioteca</span></div>
+    <nav class="nav-links"><a href="../../index.html">Inicio</a></nav>
+  </header>
+
+  <main class="guia-main">
+    <a class="back-link" href="../../index.html">← Biblioteca</a>
+    <h1><code>to_manifest</code></h1>
+    <p class="lead">
+      Combina descripción de acorde + resolución de guitarra para una lista de símbolos.
+      Pensado para publicadores, SEO/GEO y bridges hacia apps como CHORDIA.
+    </p>
+
+    <div class="python-tip">
+      <strong>API:</strong> <code>jazz21.to_manifest(symbols: list[str]) → list[dict]</code>.
+      Cada entrada tiene <code>symbol</code>, <code>chord</code>, <code>guitar</code>
+      o <code>error</code> si no se reconoce.
+    </div>
+
+    <div class="playground" data-playground>
+      <div class="pg-toolbar">
+        <button type="button" class="pg-run">Ejecutar</button>
+        <button type="button" class="pg-reset pg-secondary">Reiniciar</button>
+        <span class="pg-status"></span>
+      </div>
+      <textarea class="pg-editor">import json
+import jazz21
+
+manifest = jazz21.to_manifest(["C", "Cm7", "G7alt", "???"])
+for entry in manifest:
+    sym = entry.get("symbol")
+    if "error" in entry:
+        print(sym, "→ ERROR:", entry["error"])
+        continue
+    ch = entry.get("chord") or {}
+    g = entry.get("guitar") or {}
+    n_opt = len(g.get("options") or [])
+    print(f"{sym}: {ch.get('canonical')} | guitar options: {n_opt}")
+
+print()
+print("JSON (primer símbolo, recortado):")
+print(json.dumps(manifest[0], indent=2, ensure_ascii=False)[:500])</textarea>
+      <p class="pg-output-label">Salida</p>
+      <pre class="pg-output"></pre>
+      <div class="pg-svg"></div>
+    </div>
+
+    <nav class="guia-nav">
+      <a href="../guitarra/diagramas.html">← Guitarra</a>
+      <a href="../../spike.html">Spike técnico →</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">jazz21 · manifest</footer>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
+  <script src="../../js/pyodide-playground.js"></script>
+</body>
+</html>

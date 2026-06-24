@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inversiones · jazz21</title>
+  <link rel="stylesheet" href="../../css/biblioteca.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">jazz21 <span>· biblioteca</span></div>
+    <nav class="nav-links"><a href="../../index.html">Inicio</a></nav>
+  </header>
+
+  <main class="guia-main">
+    <a class="back-link" href="../../index.html">← Biblioteca</a>
+    <h1>Ciclo de inversiones</h1>
+    <p class="lead">
+      jazz21 puede avanzar un acorde por sus inversiones (slash chords) en una progresión,
+      útil para explorar voicings en lead sheets.
+    </p>
+
+    <div class="python-tip">
+      <strong>Funciones:</strong>
+      <code>advance_chord_inversion</code>,
+      <code>chord_inversion_cycle_length</code>,
+      <code>build_inversion_tour_plan</code> en <code>jazz21.notation</code>.
+    </div>
+
+    <div class="playground" data-playground>
+      <div class="pg-toolbar">
+        <button type="button" class="pg-run">Ejecutar</button>
+        <button type="button" class="pg-reset pg-secondary">Reiniciar</button>
+        <span class="pg-status"></span>
+      </div>
+      <textarea class="pg-editor">from jazz21.notation import (
+    advance_chord_inversion,
+    chord_inversion_cycle_length,
+    build_inversion_tour_plan,
+)
+
+token = "Cmaj7"
+n = chord_inversion_cycle_length(token)
+print(f"Ciclo de '{token}': {n} pasos")
+print()
+
+actual = token
+for i in range(n):
+    print(f"  {i}: {actual}")
+    actual = advance_chord_inversion(actual) or actual
+
+print()
+prog = "| Cmaj7 | Am7 |"
+plan = build_inversion_tour_plan(prog)
+print("Plan de tour para:", prog)
+print(plan[:6], "...")</textarea>
+      <p class="pg-output-label">Salida</p>
+      <pre class="pg-output"></pre>
+      <div class="pg-svg"></div>
+    </div>
+
+    <nav class="guia-nav">
+      <a href="progression.html">← Lead sheets</a>
+      <a href="../guitarra/diagramas.html">Siguiente: guitarra →</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">jazz21 · notación</footer>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
+  <script src="../../js/pyodide-playground.js"></script>
+</body>
+</html>

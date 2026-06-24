@@ -19,6 +19,7 @@ def _shape_rank(shape: str) -> int:
 
 
 def music21_kind_to_quality(kind: str) -> str | None:
+    """Map a music21 ``chordKind`` string to a CAGED catalog quality key."""
     k = (kind or "").replace("_", "-").lower().strip()
     if not k:
         return None
@@ -418,12 +419,22 @@ def _ordered_caged_candidates(candidates: list[Any], *, root_pc_i: int) -> list[
     )
 
 
-def _resolve_one_chord(
+def resolve_one_chord(
     chord: dict[str, Any],
     by_quality: dict[str, list[Any]],
     *,
     shape_cycle: int = 0,
 ) -> tuple[dict[str, Any] | None, str | None]:
+    """Resolve a single chord dict to guitar metadata (SVG, CAGED shape, frets).
+
+    Args:
+        chord: Dict with ``kind``, ``root_pc``, ``symbol``, optional ``sound_pcs``.
+        by_quality: Quality key → list of shape records from ``ShapesCatalog``.
+        shape_cycle: Index when multiple CAGED placements exist.
+
+    Returns:
+        ``(guitar_dict, None)`` on success, or ``(None, reason)`` on failure.
+    """
     kind_raw = chord.get("kind") or ""
     root_pc = chord.get("root_pc")
     try:
@@ -563,7 +574,17 @@ def attach_guitar_shapes_to_chords(
     shape_cycle_by_flat: dict[int, int] | None = None,
     shapes: list[Any] | None = None,
 ) -> None:
-    """Añade la clave ``guitar`` a cada elemento de ``chords`` (mutación in-place)."""
+    """Attach a ``guitar`` key to each chord dict (in-place mutation).
+
+    Args:
+        chords: List of chord metadata dicts (``kind``, ``root_pc``, ``symbol``,
+            ``flat_index``, …) as produced by ``parse_progression_to_musicxml``.
+        shape_cycle_by_flat: Optional map ``flat_index`` → CAGED cycle index.
+        shapes: Optional shape list; defaults to built-in CAGED seed catalog.
+
+    Each chord gets ``chord["guitar"]`` with SVG and shape data, or
+    ``{"unavailable": True, "reason": "..."}`` when no diagram matches.
+    """
     if not chords:
         return
     from jazz21.guitar.shapes import ShapesCatalog
@@ -586,7 +607,7 @@ def attach_guitar_shapes_to_chords(
             cyc_arg = int(cyc_arg)
         except (TypeError, ValueError):
             cyc_arg = 0
-        g, reason = _resolve_one_chord(c, by_quality, shape_cycle=cyc_arg)
+        g, reason = resolve_one_chord(c, by_quality, shape_cycle=cyc_arg)
         if g is not None:
             c["guitar"] = g
         else:
@@ -594,3 +615,17 @@ def attach_guitar_shapes_to_chords(
                 "unavailable": True,
                 "reason": reason or "Motivo no detallado.",
             }
+
+
+# Backward compatibility for internal callers and tests.
+_resolve_one_chord = resolve_one_chord
+
+__all__ = [
+    "attach_guitar_shapes_to_chords",
+    "diagram_review_reasons",
+    "infer_caged_quality_from_pcs",
+    "music21_kind_to_caged_approx",
+    "music21_kind_to_quality",
+    "resolve_caged_quality",
+    "resolve_one_chord",
+]

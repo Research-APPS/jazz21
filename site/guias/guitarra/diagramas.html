@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diagramas guitarra · jazz21</title>
+  <link rel="stylesheet" href="../../css/biblioteca.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">jazz21 <span>· biblioteca</span></div>
+    <nav class="nav-links"><a href="../../index.html">Inicio</a></nav>
+  </header>
+
+  <main class="guia-main">
+    <a class="back-link" href="../../index.html">← Biblioteca</a>
+    <h1>Diagramas CAGED (SVG)</h1>
+    <p class="lead">
+      Un mismo acorde puede dibujarse en varias zonas del mástil. jazz21 recorre las
+      plantillas del sistema <strong>CAGED</strong> y devuelve cada colocación como una
+      opción con su SVG.
+    </p>
+
+    <section class="guia-section">
+      <h2>¿Qué es CAGED?</h2>
+      <p>
+        CAGED son cinco formas de referencia — <strong>C</strong>, <strong>A</strong>,
+        <strong>G</strong>, <strong>E</strong>, <strong>D</strong> — tomadas de acordes
+        abiertos. Para un acorde como <code>Cmaj7</code>, jazz21 busca plantillas de
+        esa calidad (<code>maj7</code>), las transpone a la raíz correcta y puede ofrecer
+        más de una colocación jugable en el mástil.
+      </p>
+      <ul>
+        <li><code>caged_shape</code> — letra de la plantilla usada (C, A, G, E o D).</li>
+        <li><code>diagram_base_fret</code> — traste donde empieza el diagrama (cejilla o nut).</li>
+        <li><code>shape_cycle</code> — índice de la opción (0, 1, 2…) cuando hay varias.</li>
+        <li><code>transposed</code> — si la forma se movió desde la plantilla abierta original.</li>
+      </ul>
+    </section>
+
+    <section class="guia-section">
+      <h2>Cómo elegir una forma</h2>
+      <p>
+        <code>resolve_guitar_shapes(symbol)</code> devuelve <strong>todas</strong> las opciones
+        en <code>r["options"]</code>. Para fijar una en APIs o UI:
+      </p>
+      <ul>
+        <li>
+          Pasa <code>shape_cycle=n</code> y lee <code>r["selected"]</code>
+          (la misma estructura que un elemento de <code>options</code>).
+        </li>
+        <li>
+          En progresiones con <code>attach_guitar_shapes_to_chords</code>, usa
+          <code>shape_cycle_by_flat={flat_index: n}</code> para elegir forma distinta
+          por acorde.
+        </li>
+        <li>
+          Criterio musical (no automático en jazz21): cercanía al acorde anterior,
+          registro del mástil, evitar saltos grandes o cejillas incómodas.
+        </li>
+      </ul>
+    </section>
+
+    <div class="python-tip">
+      <strong>Ejecuta el código</strong> para ver <em>todas</em> las formas de
+      <code>Cmaj7</code> en la galería inferior. El resumen textual lista cada opción;
+      los diagramas SVG se envían por un canal separado (sin mezclar XML en el log).
+    </div>
+
+    <div class="playground" data-playground data-svg-gallery>
+      <div class="pg-toolbar">
+        <button type="button" class="pg-run">Ejecutar</button>
+        <button type="button" class="pg-reset pg-secondary">Reiniciar</button>
+        <span class="pg-status"></span>
+      </div>
+      <textarea class="pg-editor">import json
+import jazz21
+
+symbol = "Cmaj7"
+r = jazz21.resolve_guitar_shapes(symbol)
+
+if r.get("unavailable"):
+    print("No disponible:", r.get("reason"))
+else:
+    print(f"Acorde: {symbol} → {r.get('canonical')}")
+    print(f"Calidad plantilla: {r.get('caged_quality')}")
+    print(f"Opciones CAGED: {len(r['options'])}")
+    print()
+
+    gallery = []
+    for opt in r["options"]:
+        i = opt["shape_cycle"]
+        forma = opt.get("caged_shape")
+        base = opt.get("diagram_base_fret")
+        transp = opt.get("transposed")
+        print(f"  [{i}] forma {forma} | traste {base} | transposed={transp}")
+        gallery.append({
+            "caption": f"Opción {i} | forma {forma} | traste {base}",
+            "svg": opt.get("svg") or "",
+        })
+
+    # Galería: JSON embebido (lo lee el playground, no mezcla SVG en el log)
+    print("__JAZZ21_GALLERY__" + json.dumps(gallery, ensure_ascii=False))
+
+    print()
+    pick = jazz21.resolve_guitar_shapes(symbol, shape_cycle=1)
+    sel = pick.get("selected") or {}
+    print("Con shape_cycle=1 → selected:")
+    print("  forma:", sel.get("caged_shape"))
+    print("  traste:", sel.get("diagram_base_fret"))</textarea>
+      <p class="pg-output-label">Salida (texto)</p>
+      <pre class="pg-output"></pre>
+      <p class="pg-output-label">Galería CAGED</p>
+      <div class="pg-svg-gallery"></div>
+      <div class="pg-svg"></div>
+    </div>
+
+    <section class="guia-section">
+      <h2>Prueba otro acorde</h2>
+      <p>
+        Cambia <code>symbol = "Cmaj7"</code> por <code>"Am7"</code>,
+        <code>"G7"</code> o <code>"F#m7b5"</code> y vuelve a ejecutar. Algunos acordes
+        tienen más opciones que otros según la plantilla CAGED disponible.
+      </p>
+    </section>
+
+    <nav class="guia-nav">
+      <a href="../notacion/inversiones.html">← Inversiones</a>
+      <a href="../manifest/to-manifest.html">Siguiente: manifest →</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">jazz21 · guitarra</footer>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
+  <script src="../../js/pyodide-playground.js"></script>
+</body>
+</html>

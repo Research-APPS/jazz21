@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Importar módulos · jazz21</title>
+  <link rel="stylesheet" href="../css/biblioteca.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">jazz21 <span>· biblioteca</span></div>
+    <nav class="nav-links">
+      <a href="../index.html">Inicio</a>
+    </nav>
+  </header>
+
+  <main class="guia-main">
+    <a class="back-link" href="../index.html">← Biblioteca</a>
+    <h1>Importar y usar jazz21</h1>
+    <p class="lead">
+      La API de alto nivel vive en el paquete raíz. También puedes importar submódulos
+      (<code>jazz21.notation</code>, <code>jazz21.symbols</code>, <code>jazz21.guitar</code>).
+    </p>
+
+    <div class="python-tip">
+      <strong>Concepto Python:</strong> <code>import jazz21</code> carga el paquete.
+      Luego accedes a funciones con punto: <code>jazz21.describe_chord(...)</code>.
+      <code>print()</code> envía texto a la salida estándar.
+    </div>
+
+    <div class="playground" data-playground>
+      <div class="pg-toolbar">
+        <button type="button" class="pg-run">Ejecutar</button>
+        <button type="button" class="pg-reset pg-secondary">Reiniciar</button>
+        <span class="pg-status"></span>
+      </div>
+      <textarea class="pg-editor">import jazz21
+
+print("Versión:", jazz21.__version__)
+print("Funciones públicas:", jazz21.__all__)
+
+desc = jazz21.describe_chord("Cmaj7")
+print("Tipo de resultado:", type(desc).__name__)
+print("Canonical:", desc["canonical"])</textarea>
+      <p class="pg-output-label">Salida</p>
+      <pre class="pg-output"></pre>
+      <div class="pg-svg"></div>
+    </div>
+
+    <nav class="guia-nav">
+      <a href="venv.html">← Entorno y venv</a>
+      <a href="diccionarios.html">Siguiente: Diccionarios →</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">jazz21 · guías didácticas</footer>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
+  <script src="../js/pyodide-playground.js"></script>
+</body>
+</html>

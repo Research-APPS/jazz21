@@ -137,7 +137,11 @@ def _assemble(root_letter: str, acc_char: str, suffix: str) -> str:
 
 
 def split_slash(symbol: str) -> tuple[str, str | None]:
-    """Devuelve (cabeza, bajo) si hay slash; cabeza sin almohadillas extra."""
+    """Split a chord symbol into head and slash-bass if present.
+
+    Returns:
+        ``(head, bass)`` when ``/`` is present; ``(symbol, None)`` otherwise.
+    """
     s = symbol.strip()
     if "/" not in s:
         return s, None
@@ -149,9 +153,10 @@ def split_slash(symbol: str) -> tuple[str, str | None]:
 
 
 def preprocess_chord_symbol(symbol: str) -> str:
-    """
-    Devuelve el símbolo lo más canónico posible (incl. slash en bajo).
-    Usar como entrada previa a american_chord_to_music21_figure si se desea alinear variantes.
+    """Return the most canonical chord spelling for a symbol.
+
+    Uses :func:`normalize_chord_symbol` when possible; otherwise returns *symbol*
+    stripped. Useful before :func:`american_chord_to_music21_figure`.
     """
     res = normalize_chord_symbol(symbol)
     if res is None:
@@ -160,10 +165,15 @@ def preprocess_chord_symbol(symbol: str) -> str:
 
 
 def normalize_chord_symbol(symbol: str) -> dict[str, Any] | None:
-    """
-    Analiza un único token de acorde (p. ej. «Amb57», «Aø7», «Adim7», «Cmaj7/E»).
+    """Normalize one chord token to canonical form and harmonic metadata.
 
-    Devuelve None si no hay raíz reconocible o music21 no puede interpretar el resultado.
+    Args:
+        symbol: Single chord token (e.g. ``"Amb57"``, ``"Aø7"``, ``"Cmaj7/E"``).
+
+    Returns:
+        Dict with ``input``, ``canonical``, ``musicxml_kind``, ``quality``,
+        ``intervals``, ``pitches``, ``chord_kind_m21``. ``None`` if the root
+        is not recognized or music21 cannot parse the result.
     """
     raw = symbol.strip()
     if not raw:

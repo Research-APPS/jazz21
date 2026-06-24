@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lead sheets · jazz21</title>
+  <link rel="stylesheet" href="../../css/biblioteca.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">jazz21 <span>· biblioteca</span></div>
+    <nav class="nav-links"><a href="../../index.html">Inicio</a></nav>
+  </header>
+
+  <main class="guia-main">
+    <a class="back-link" href="../../index.html">← Biblioteca</a>
+    <h1>Progresiones y MusicXML</h1>
+    <p class="lead">
+      <code>parse_progression_to_musicxml</code> interpreta sintaxis de lead sheet
+      (barras <code>|</code>, acordes americanos) y exporta MusicXML para visores
+      como MuseScore u OSMD.
+    </p>
+
+    <div class="python-tip">
+      <strong>Import:</strong>
+      <code>from jazz21.notation import parse_progression_to_musicxml</code>.
+      Devuelve un <code>dict</code> con claves como <code>musicxml</code>, <code>errors</code>,
+      <code>measures</code>.
+    </div>
+
+    <div class="playground" data-playground>
+      <div class="pg-toolbar">
+        <button type="button" class="pg-run">Ejecutar</button>
+        <button type="button" class="pg-reset pg-secondary">Reiniciar</button>
+        <span class="pg-status"></span>
+      </div>
+      <textarea class="pg-editor">from jazz21.notation import parse_progression_to_musicxml
+
+prog = "| Dm7 | G7 | Cmaj7 |"
+out = parse_progression_to_musicxml(prog, title="ii-V-I")
+
+print("Errores:", out.get("errors"))
+print("Compases:", out.get("measures"))
+print()
+print("MusicXML (primeros 400 caracteres):")
+xml = out.get("musicxml") or ""
+print(xml[:400])</textarea>
+      <p class="pg-output-label">Salida</p>
+      <pre class="pg-output"></pre>
+      <div class="pg-svg"></div>
+    </div>
+
+    <nav class="guia-nav">
+      <a href="../acordes/normalizar.html">← Acordes</a>
+      <a href="inversiones.html">Siguiente: inversiones →</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">jazz21 · notación</footer>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
+  <script src="../../js/pyodide-playground.js"></script>
+</body>
+</html>

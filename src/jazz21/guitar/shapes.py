@@ -49,7 +49,17 @@ CAGED_SEED_ROWS: list[tuple] = [
 
 @dataclass
 class ChordShapeRecord:
-    """Portable CAGED (or other) shape — no Django ORM."""
+    """Portable CAGED (or other) guitar shape — no ORM dependency.
+
+    Attributes:
+        name: Display name (e.g. ``"Cmaj7"``).
+        quality: Catalog quality key (``"maj7"``, ``"min7"``, …).
+        shape: CAGED letter (``"C"``, ``"A"``, ``"G"``, ``"E"``, ``"D"``).
+        frets: Six string frets, low E to high E; ``-1`` = muted.
+        fingers: Fingering per string (optional).
+        base_fret: Nut position for diagram rendering.
+        intervals, notes: Computed from the music21 figure and frets.
+    """
 
     name: str
     quality: str
@@ -67,6 +77,7 @@ class ChordShapeRecord:
 
 
 def chord_shape_from_row(row: tuple, *, orden: int) -> ChordShapeRecord:
+    """Build a :class:`ChordShapeRecord` from a ``CAGED_SEED_ROWS`` tuple."""
     sh, quality, name, figure, frets, fingers, barre, base_fret = row
     intervals, notes_list = compute_intervals_notes(figure, list(frets))
     return ChordShapeRecord(
@@ -113,6 +124,7 @@ class ShapesCatalog:
 
     @classmethod
     def default_caged(cls) -> ShapesCatalog:
+        """Return the built-in CAGED seed catalog shipped with jazz21."""
         shapes = [
             chord_shape_from_row(row, orden=i)
             for i, row in enumerate(CAGED_SEED_ROWS)
@@ -120,6 +132,7 @@ class ShapesCatalog:
         return cls(shapes)
 
     def playable_shapes(self, *, system: str = "caged") -> list[ChordShapeRecord]:
+        """Return shapes marked playable for the given fretboard system."""
         return [
             s
             for s in self._shapes

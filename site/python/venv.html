@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Entorno y venv · jazz21</title>
+  <link rel="stylesheet" href="../css/biblioteca.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">jazz21 <span>· biblioteca</span></div>
+    <nav class="nav-links">
+      <a href="../index.html">Inicio</a>
+      <a href="https://github.com/Research-APPS/jazz21" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="guia-main">
+    <a class="back-link" href="../index.html">← Biblioteca</a>
+    <h1>Entorno virtual y pip</h1>
+    <p class="lead">
+      jazz21 es una librería Python. Lo habitual es instalarla en un <em>entorno virtual</em>
+      aislado del sistema, para no mezclar dependencias con otros proyectos.
+    </p>
+
+    <div class="python-tip">
+      <strong>Concepto Python:</strong> un <code>venv</code> es una carpeta con su propio
+      <code>python</code> y <code>pip</code>. Activas el entorno en la terminal y todo lo que
+      instales con <code>pip</code> queda ahí dentro.
+    </div>
+
+    <p>En tu máquina (fuera del navegador):</p>
+    <pre class="terminal">python3.10 -m venv .venv
+source .venv/bin/activate          # macOS / Linux
+# .venv\Scripts\activate           # Windows
+
+python -m pip install -U pip setuptools wheel
+pip install -e ".[dev]"            # desde el clon del repo</pre>
+
+    <p>Comprueba que jazz21 responde:</p>
+    <pre class="terminal">python -c "import jazz21; print(jazz21.__version__)"
+pytest -q</pre>
+
+    <p>
+      En esta biblioteca web, el código jazz21 corre con <strong>Pyodide</strong> (Python en WASM).
+      No necesitas venv en el navegador, pero sí para desarrollo local serio.
+    </p>
+
+    <nav class="guia-nav">
+      <span></span>
+      <a href="importar.html">Siguiente: Importar módulos →</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">jazz21 · guías didácticas</footer>
+</body>
+</html>

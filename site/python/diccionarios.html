@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diccionarios · jazz21</title>
+  <link rel="stylesheet" href="../css/biblioteca.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">jazz21 <span>· biblioteca</span></div>
+    <nav class="nav-links">
+      <a href="../index.html">Inicio</a>
+    </nav>
+  </header>
+
+  <main class="guia-main">
+    <a class="back-link" href="../index.html">← Biblioteca</a>
+    <h1>Leer un diccionario de acorde</h1>
+    <p class="lead">
+      <code>describe_chord</code> devuelve un <code>dict</code> con metadatos del símbolo:
+      forma canónica, intervalos, figura music21, etc.
+    </p>
+
+    <div class="python-tip">
+      <strong>Concepto Python:</strong> un <code>dict</code> es un mapa clave → valor.
+      Accedes con corchetes: <code>resultado["canonical"]</code>.
+      Si la clave no existe, Python lanza <code>KeyError</code> — usa <code>.get("clave")</code>
+      para un valor por defecto.
+    </div>
+
+    <div class="playground" data-playground>
+      <div class="pg-toolbar">
+        <button type="button" class="pg-run">Ejecutar</button>
+        <button type="button" class="pg-reset pg-secondary">Reiniciar</button>
+        <span class="pg-status"></span>
+      </div>
+      <textarea class="pg-editor">import json
+import jazz21
+
+for simbolo in ["Cmaj7", "Aø7", "Bbmaj9/D"]:
+    d = jazz21.describe_chord(simbolo)
+    print(f"--- {simbolo} ---")
+    if d is None:
+        print("  (no reconocido)")
+        continue
+    print("  canonical:", d.get("canonical"))
+    print("  music21:", d.get("music21_figure"))
+    print("  intervalos:", d.get("intervals"))
+    print()</textarea>
+      <p class="pg-output-label">Salida</p>
+      <pre class="pg-output"></pre>
+      <div class="pg-svg"></div>
+    </div>
+
+    <nav class="guia-nav">
+      <a href="importar.html">← Importar</a>
+      <a href="../guias/acordes/describe-chord.html">Siguiente: describe_chord →</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">jazz21 · guías didácticas</footer>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
+  <script src="../js/pyodide-playground.js"></script>
+</body>
+</html>

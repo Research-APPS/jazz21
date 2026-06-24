@@ -5,17 +5,25 @@ from __future__ import annotations
 from collections import defaultdict
 from typing import Any
 
-from jazz21.guitar.resolve import _resolve_one_chord
+from jazz21.guitar.resolve import resolve_one_chord
 from jazz21.guitar.shapes import ShapesCatalog
 from jazz21.notation.compose_engine import american_chord_to_music21_figure
 from jazz21.symbols import normalize_chord_symbol
 
 
 def describe_chord(symbol: str) -> dict[str, Any] | None:
-    """
-    Return a JSON-serializable description of a chord symbol.
+    """Return a JSON-serializable description of a chord symbol.
 
-    Combines ``normalize_chord_symbol`` with the music21 figure used internally.
+    Combines :func:`jazz21.symbols.normalize_chord_symbol` with the music21
+    figure used internally for harmony and export.
+
+    Args:
+        symbol: American or jazz chord token (e.g. ``"Cmaj7"``, ``"Aø7"``).
+
+    Returns:
+        Dict with keys ``input``, ``canonical``, ``music21_figure``,
+        ``intervals``, ``pitches``, ``musicxml_kind``, ``quality``,
+        ``chord_kind_m21``. ``None`` if *symbol* is empty or unrecognized.
     """
     raw = (symbol or "").strip()
     if not raw:
@@ -60,10 +68,17 @@ def resolve_guitar_shapes(
     *,
     shape_cycle: int | None = None,
 ) -> dict[str, Any]:
-    """
-    Resolve CAGED guitar diagram(s) for a chord symbol.
+    """Resolve CAGED guitar diagram(s) for a chord symbol.
 
-    Returns ``{options: [...], selected?: ...}`` or ``{unavailable: True, reason: ...}``.
+    Args:
+        symbol: Chord symbol to diagram.
+        shape_cycle: If set, include ``selected`` for that CAGED placement index.
+
+    Returns:
+        On success: ``symbol``, ``canonical``, ``caged_quality``, ``options``
+        (list of dicts with ``svg``, ``caged_shape``, ``shape_cycle``, …).
+        On failure: ``{"options": [], "unavailable": True, "reason": str}``.
+        When *shape_cycle* is given and options exist, also ``selected``.
     """
     desc = describe_chord(symbol)
     if desc is None:
@@ -77,14 +92,14 @@ def resolve_guitar_shapes(
     for s in ShapesCatalog.default_caged().playable_shapes():
         by_quality[s.quality].append(s)
 
-    probe, reason = _resolve_one_chord(chord, by_quality, shape_cycle=0)
+    probe, reason = resolve_one_chord(chord, by_quality, shape_cycle=0)
     if probe is None:
         return {"options": [], "unavailable": True, "reason": reason or "Sin forma CAGED."}
 
     n_opt = int(probe.get("caged_options") or 1)
     options: list[dict[str, Any]] = []
     for cyc in range(n_opt):
-        g, err_c = _resolve_one_chord(chord, by_quality, shape_cycle=cyc)
+        g, err_c = resolve_one_chord(chord, by_quality, shape_cycle=cyc)
         if g is None:
             if cyc == 0:
                 return {"options": [], "unavailable": True, "reason": err_c or reason}
@@ -115,7 +130,17 @@ def resolve_guitar_shapes(
 
 
 def to_manifest(symbols: list[str]) -> list[dict[str, Any]]:
-    """Build a manifest list for a set of chord symbols (SEO / GEO bridge)."""
+    """Build a manifest list for a set of chord symbols.
+
+    Args:
+        symbols: Chord tokens to describe.
+
+    Returns:
+        One dict per symbol with ``symbol`` and either:
+        - ``chord`` (from :func:`describe_chord`) and ``guitar``
+          (from :func:`resolve_guitar_shapes`), or
+        - ``error``: ``"unrecognized"`` when the symbol cannot be parsed.
+    """
     manifest: list[dict[str, Any]] = []
     for sym in symbols:
         entry: dict[str, Any] = {"symbol": sym.strip()}

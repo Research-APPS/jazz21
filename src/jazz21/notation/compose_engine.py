@@ -376,6 +376,7 @@ def normalize_progression(text: str) -> str:
 
 
 def strip_trailing_chord_dots(symbol: str) -> str:
+    """Remove trailing dot ornament from a chord token (e.g. ``Dm7.`` → ``Dm7``)."""
     s = symbol.strip()
     if not s:
         return s
@@ -1024,6 +1025,7 @@ def build_inversion_tour_plan(progression: str) -> list[tuple[int, int]]:
 
 
 def total_inversion_tour_steps(progression: str) -> int:
+    """Return the total number of inversion steps across a lead-sheet progression."""
     return sum(n for _fi, n in build_inversion_tour_plan(progression))
 
 
@@ -1592,9 +1594,20 @@ def progression_to_midi_bytes(
     measure_melodies: Any | None = None,
     scale_context: Any | None = None,
 ) -> tuple[bytes | None, str | None]:
-    """
-    MIDI binario igual que el grafo MusicXML del compositor.
-    Devuelve (bytes, None) o (None, mensaje_error).
+    """Export a lead-sheet progression as MIDI bytes.
+
+    Args:
+        progression: Lead-sheet text (bars, American chord symbols).
+        max_chords: Maximum flat chord tokens allowed.
+        title: Score title metadata.
+        key_fifths: Key signature fifths for the score.
+        key_mode: ``"major"`` or ``"minor"``.
+        measure_melodies: Optional per-measure melody payloads.
+        scale_context: Optional symbolic scale context (echoed in MusicXML path).
+
+    Returns:
+        ``(midi_bytes, None)`` on success, or ``(None, error_code)`` where
+        *error_code* is ``"too_many_or_empty"`` or an exception message string.
     """
     bundle = _compose_build_score_bundle(
         progression,
@@ -1633,15 +1646,23 @@ def parse_progression_to_musicxml(
     measure_melodies: Any | None = None,
     scale_context: Any | None = None,
 ) -> dict[str, Any]:
-    """
-    Devuelve un dict con:
-      - musicxml: str
-      - chords: lista de metadatos por acorde válido (measure 1-based)
-      - errors: tokens rechazados con índice en la lista tokenizada
-      - raw, measures, expanded: capas lead sheet (progresión analizada = expanded)
-      - render_warnings: avisos sobre anomalies del MusicXML para el visor (p.ej. símbolo N.C.).
-      - scale_context: opcional, eco del objeto simbólico {mode_family, base_mode, jazz_depth, ...}
-        cuando se pasó en la petición (no cambia la armadura en music21).
+    """Parse a lead-sheet progression and export MusicXML.
+
+    Args:
+        progression: Text with ``|`` bar lines and American/jazz chord symbols.
+        max_chords: Maximum number of chord tokens allowed.
+        title: Score title written into the export.
+        key_fifths: Key signature (fifths) for the score.
+        key_mode: ``"major"`` or ``"minor"``.
+        measure_melodies: Optional melody events per measure index.
+        scale_context: Optional dict echoed in the result (does not change key
+            in music21); keys such as ``mode_family``, ``jazz_depth``.
+
+    Returns:
+        Dict with at least ``musicxml``, ``chords``, ``errors``, ``raw``,
+        ``measures``, ``expanded``. May include ``enharmonic_conflicts``,
+        ``render_warnings``, ``melody_warnings``, ``measure_melodies``,
+        ``scale_context``, ``key_fifths``, ``key_mode``.
     """
     bundle = _compose_build_score_bundle(
         progression,
@@ -1706,3 +1727,29 @@ def parse_progression_to_musicxml(
             else {}
         ),
     }
+
+
+__all__ = [
+    "DEFAULT_MAX_CHORDS",
+    "american_chord_to_music21_figure",
+    "normalize_progression",
+    "strip_trailing_chord_dots",
+    "split_measures_tokenized",
+    "expand_lead_sheet_measures",
+    "parse_lead_sheet",
+    "measures_from_progression",
+    "tokenize_progression",
+    "pitch_american_no_octave",
+    "pitch_american_with_octave",
+    "analyze_chord_inversion_step",
+    "advance_chord_inversion",
+    "replace_chord_with_next_inversion_detail",
+    "replace_chord_with_next_inversion",
+    "chord_inversion_cycle_length",
+    "build_inversion_tour_plan",
+    "total_inversion_tour_steps",
+    "enharmonic_conflicts_from_parsed",
+    "apply_enharmonic_root_spelling",
+    "progression_to_midi_bytes",
+    "parse_progression_to_musicxml",
+]

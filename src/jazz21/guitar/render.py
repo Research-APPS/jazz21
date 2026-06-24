@@ -17,7 +17,26 @@ def render_chord_shape_svg(
     show_degree_labels: bool = True,
     chord_figure: str | None = None,
 ) -> str:
-    """``fingers`` y ``frets`` en orden Mi grave → Mi agudo."""
+    """Render an SVG chord diagram for six strings.
+
+    Args:
+        name: Chord label shown on the diagram.
+        shape_letter: CAGED shape letter.
+        frets: Six fret positions (low E → high E); ``-1`` = muted.
+        fingers: Fingering indices per string.
+        base_fret: Starting fret for the diagram window.
+        barre: Optional ``(from_string, to_string, fret)`` barre.
+        show_finger_numbers: Draw fingering digits on dots.
+        show_degree_labels: Show interval degree labels (forces fallback SVG
+            when fretsy is installed but neck position is non-open).
+        chord_figure: Optional music21 figure for degree labels.
+
+    Returns:
+        SVG markup string.
+
+    Raises:
+        ValueError: If ``frets`` does not have exactly six elements.
+    """
     if len(frets) != 6:
         raise ValueError("frets must have 6 elements")
     finger_src = list(fingers) if fingers else [0] * 6
