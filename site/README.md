@@ -1,5 +1,9 @@
 # Sitio didáctico jazz21 (GitHub Pages)
 
+Publicado en: **https://research-apps.github.io/jazz21/**
+
+El workflow `.github/workflows/pages.yml` construye el wheel y despliega esta carpeta en cada push a `main`. En el repo, activa **Settings → Pages → Source: GitHub Actions** (una sola vez).
+
 ## Spike Pyodide
 
 Prueba si jazz21 puede ejecutarse en el navegador.

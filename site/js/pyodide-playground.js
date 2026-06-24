@@ -9,8 +9,14 @@
 
   let pyodidePromise = null;
 
+  const playgroundScriptSrc =
+    (document.currentScript && document.currentScript.src) || "";
+
   function wheelUrlFromPage() {
-    return new URL("/wheels/" + WHEEL_NAME, global.location.origin).href;
+    if (playgroundScriptSrc) {
+      return new URL("../wheels/" + WHEEL_NAME, playgroundScriptSrc).href;
+    }
+    return new URL("wheels/" + WHEEL_NAME, global.location.href).href;
   }
 
   function appendStreamChunk(target, chunk) {

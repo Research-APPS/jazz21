@@ -1,8 +1,11 @@
 # jazz21
 
 [![CI](https://github.com/Research-APPS/jazz21/actions/workflows/ci.yml/badge.svg)](https://github.com/Research-APPS/jazz21/actions/workflows/ci.yml)
+[![Pages](https://github.com/Research-APPS/jazz21/actions/workflows/pages.yml/badge.svg)](https://github.com/Research-APPS/jazz21/actions/workflows/pages.yml)
 
 **jazz21** is a practical jazz, lead-sheet, and guitar layer built on top of [music21](https://pypi.org/project/music21/).
+
+Interactive guides (Spanish, Pyodide in the browser): **[research-apps.github.io/jazz21](https://research-apps.github.io/jazz21/)**
 
 `music21` is excellent for symbolic music analysis, Roman numerals, MusicXML, and MIDI.  
 `jazz21` exists to make that foundation easier to use in real-world jazz workflows: American chord spelling, lead-sheet progressions, slash chords, chord normalization, and guitar-friendly representations.
