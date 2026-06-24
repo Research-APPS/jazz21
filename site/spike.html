@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>jazz21 · Spike Pyodide</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #1a2332;
+      --text: #e8edf4;
+      --muted: #8b9cb3;
+      --accent: #3d8bfd;
+      --ok: #3dd68c;
+      --err: #f87171;
+      --warn: #fbbf24;
+      --mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 1.5rem;
+      max-width: 52rem;
+      margin-inline: auto;
+    }
+    h1 { font-size: 1.35rem; margin: 0 0 0.25rem; }
+    .sub { color: var(--muted); margin: 0 0 1.5rem; font-size: 0.95rem; }
+    .panel {
+      background: var(--surface);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .panel h2 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      margin: 0 0 0.75rem;
+    }
+    #log {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+      margin: 0;
+      min-height: 12rem;
+      max-height: 28rem;
+      overflow: auto;
+    }
+    .line-ok { color: var(--ok); }
+    .line-err { color: var(--err); }
+    .line-warn { color: var(--warn); }
+    .line-info { color: var(--accent); }
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 0.55rem 1rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    button:disabled { opacity: 0.45; cursor: not-allowed; }
+    button.secondary {
+      background: var(--surface);
+      border: 1px solid #334155;
+      color: var(--text);
+    }
+    #status { font-size: 0.9rem; margin-bottom: 1rem; }
+    a { color: var(--accent); }
+    code { font-family: var(--mono); font-size: 0.88em; }
+  </style>
+</head>
+<body>
+  <h1>Spike Pyodide · jazz21</h1>
+  <p class="sub">
+    Prueba si <code>music21</code> y <code>jazz21</code> pueden instalarse y ejecutarse en el navegador
+    vía <a href="https://pyodide.org/" target="_blank" rel="noopener">Pyodide</a> + micropip.
+    El resultado guía si el sitio didáctico puede ejecutar jazz21 en el cliente o necesita fallback prerender.
+  </p>
+
+  <p id="status">Pulsa «Ejecutar spike» para empezar.</p>
+
+  <div>
+    <button id="run" type="button">Ejecutar spike</button>
+    <button id="clear" type="button" class="secondary">Limpiar log</button>
+  </div>
+
+  <div class="panel" style="margin-top: 1rem;">
+    <h2>Log</h2>
+    <pre id="log" aria-live="polite"></pre>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
+  <script>
+    const logEl = document.getElementById("log");
+    const statusEl = document.getElementById("status");
+    const runBtn = document.getElementById("run");
+    const clearBtn = document.getElementById("clear");
+
+    function log(msg, cls = "") {
+      const span = document.createElement("span");
+      if (cls) span.className = cls;
+      span.textContent = msg + "\n";
+      logEl.appendChild(span);
+      logEl.scrollTop = logEl.scrollHeight;
+    }
+
+    function setStatus(msg) {
+      statusEl.textContent = msg;
+    }
+
+    clearBtn.addEventListener("click", () => {
+      logEl.textContent = "";
+      setStatus("Log limpiado.");
+    });
+
+    async function timed(label, fn) {
+      const t0 = performance.now();
+      log("→ " + label + "…", "line-info");
+      try {
+        const result = await fn();
+        const ms = Math.round(performance.now() - t0);
+        log("✓ " + label + " (" + ms + " ms)", "line-ok");
+        return { ok: true, result, ms };
+      } catch (e) {
+        const ms = Math.round(performance.now() - t0);
+        log("✗ " + label + " (" + ms + " ms)", "line-err");
+        log("  " + (e && e.message ? e.message : String(e)), "line-err");
+        return { ok: false, error: e, ms };
+      }
+    }
+
+    runBtn.addEventListener("click", async () => {
+      runBtn.disabled = true;
+      logEl.textContent = "";
+      setStatus("Cargando Pyodide…");
+
+      const pyodide = await timed("Cargar Pyodide", async () => {
+        return await loadPyodide({
+          indexURL: "https://cdn.jsdelivr.net/pyodide/v0.27.7/full/",
+        });
+      });
+      if (!pyodide.ok) {
+        setStatus("Falló la carga de Pyodide.");
+        runBtn.disabled = false;
+        return;
+      }
+      const py = pyodide.result;
+
+      py.setStdout({ batched: (s) => log("  stdout: " + s.trimEnd()) });
+      py.setStderr({ batched: (s) => log("  stderr: " + s.trimEnd(), "line-warn") });
+
+      await timed("Cargar micropip", async () => {
+        await py.loadPackage("micropip");
+      });
+
+      const music21 = await timed('micropip.install("music21")', async () => {
+        return await py.runPythonAsync(`
+import micropip
+await micropip.install("music21", keep_going=True)
+import music21
+music21.__version__
+        `);
+      });
+      if (!music21.ok) {
+        log("", "");
+        log("music21 no disponible en WASM — el sitio usará salida pre-generada en CI.", "line-warn");
+        setStatus("Spike terminado: music21 no carga en el navegador (usar fallback prerender).");
+        runBtn.disabled = false;
+        return;
+      }
+      log("  music21 version: " + music21.result, "line-ok");
+
+      const jazz21pkg = await timed('micropip.install("jazz21") desde PyPI', async () => {
+        return await py.runPythonAsync(`
+import micropip
+await micropip.install("jazz21")
+import jazz21
+jazz21.__version__
+        `);
+      });
+
+      if (!jazz21pkg.ok) {
+        log("jazz21 no está en PyPI aún — probando wheel local (desarrollo)…", "line-warn");
+        const wheelHref = new URL("wheels/jazz21-0.1.0-py3-none-any.whl", window.location.href).href;
+        const localWheel = await timed("micropip.install(wheel local)", async () => {
+          return await py.runPythonAsync(`
+import micropip
+await micropip.install(${JSON.stringify(wheelHref)})
+import jazz21
+jazz21.__version__
+          `);
+        });
+        if (!localWheel.ok) {
+          log("Wheel local no encontrado. Ejecuta: python -m build --wheel -o site/wheels", "line-warn");
+          log("Sirve el sitio con: cd site && python -m http.server 8765", "line-warn");
+          setStatus("Spike: music21 OK, jazz21 requiere wheel local o PyPI.");
+          runBtn.disabled = false;
+          return;
+        }
+        log("  jazz21 version (wheel local): " + localWheel.result, "line-ok");
+      } else {
+        log("  jazz21 version: " + jazz21pkg.result, "line-ok");
+      }
+
+      const demo = await timed("describe_chord + resolve_guitar_shapes", async () => {
+        return await py.runPythonAsync(`
+import json
+import jazz21
+
+d = jazz21.describe_chord("Aø7")
+g = jazz21.resolve_guitar_shapes("Am7")
+out = {
+  "describe_chord_canonical": d.get("canonical") if d else None,
+  "guitar_options": len(g.get("options") or []),
+  "guitar_unavailable": g.get("unavailable"),
+}
+print(json.dumps(out, indent=2))
+json.dumps(out)
+        `);
+      });
+
+      if (demo.ok) {
+        log("  demo JSON: " + demo.result, "line-ok");
+        setStatus("Spike OK — jazz21 ejecutable en el navegador.");
+      } else {
+        setStatus("Spike: paquetes cargados pero falló el demo.");
+      }
+      runBtn.disabled = false;
+    });
+  </script>
+</body>
+</html>

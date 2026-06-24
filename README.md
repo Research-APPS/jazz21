@@ -2,9 +2,26 @@
 
 [![CI](https://github.com/Research-APPS/jazz21/actions/workflows/ci.yml/badge.svg)](https://github.com/Research-APPS/jazz21/actions/workflows/ci.yml)
 
-**jazz21** is a Python library for jazz and lead-sheet notation built **on top of [music21](https://pypi.org/project/music21/)**. It is not a replacement for music21.
+**jazz21** is a practical jazz, lead-sheet, and guitar layer built on top of [music21](https://pypi.org/project/music21/).
 
-music21 provides harmonic analysis, `ChordSymbol`, roman numerals, MusicXML, and MIDI. jazz21 adapts that stack to real-world jazz and American chord spelling, lead-sheet syntax (`%`, `/`, bar lines), inversion cycling, and (in later versions) guitar CAGED diagrams.
+`music21` is excellent for symbolic music analysis, Roman numerals, MusicXML, and MIDI.  
+`jazz21` exists to make that foundation easier to use in real-world jazz workflows: American chord spelling, lead-sheet progressions, slash chords, chord normalization, and guitar-friendly representations.
+
+In short:
+
+- use `music21` for general symbolic music infrastructure
+- use `jazz21` when you want a more practical API for jazz harmony, lead sheets, and guitar-oriented applications
+
+`jazz21` is designed as a reusable library layer. It can power apps such as CHORDIA, but it is also intended to work on its own in scripts, notebooks, APIs, and research tools.
+
+## Quick Start
+
+```python
+import jazz21
+
+print(jazz21.describe_chord("Cmaj7"))
+print(jazz21.resolve_guitar_shapes("Am7"))
+```
 
 ## Requirements
 
@@ -56,7 +73,7 @@ pytest -q
 | `attach_guitar_shapes_to_chords(chords)` | Attach SVG guitar diagrams to chord metadata in place | `list[dict]` |
 | `describe_chord(symbol)` | Produce a structured chord description for downstream publishing | `dict | None` |
 
-## Quick Examples
+## More Examples
 
 ```python
 from jazz21.notation import (

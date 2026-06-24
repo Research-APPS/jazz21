@@ -13,3 +13,4 @@ dist/
 .venv/
 venv/
 .env
+site/wheels/*.whl
