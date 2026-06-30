@@ -1,0 +1,15 @@
+<article class="library-card">
+  <h2 class="library-card-title">
+    <a href="{% url 'progression_detail' progression.uuid %}">{{ progression.title }}</a>
+  </h2>
+  <p class="library-card-meta">{{ progression.key }} · {{ progression.mode }}</p>
+  <div class="library-chips">
+    {% for chord in progression.analysis_json %}
+      <span class="library-chip">
+        <strong>{{ chord.simbolo }}</strong>
+        <small>{{ chord.grado|default:"?" }}{% if chord.funcion %} · {{ chord.funcion }}{% elif chord.diatonico %} · diatónico{% endif %}</small>
+      </span>
+      {% if not forloop.last %}<span class="prog-arrow">→</span>{% endif %}
+    {% endfor %}
+  </div>
+</article>

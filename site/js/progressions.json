@@ -1,0 +1,5231 @@
+[
+  {
+    "nivel": 1,
+    "nombre": "ii-V-I (C)",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Dm7",
+        "notas": [
+          "D4",
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "II",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G7",
+        "notas": [
+          "G3",
+          "B3",
+          "D4",
+          "F4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 1,
+    "nombre": "ii-V-I (F)",
+    "tonalidad": "F",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Gm7",
+        "notas": [
+          "G3",
+          "Bb3",
+          "D4",
+          "F4"
+        ],
+        "grado": "II",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "C7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "Bb3"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Fmaj7",
+        "notas": [
+          "F4",
+          "A3",
+          "C4",
+          "E4"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 1,
+    "nombre": "I-VI-II-V (turnaround)",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Am7",
+        "notas": [
+          "A3",
+          "C4",
+          "E4",
+          "G3"
+        ],
+        "grado": "VI",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Dm7",
+        "notas": [
+          "D4",
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "II",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G7",
+        "notas": [
+          "G3",
+          "B3",
+          "D4",
+          "F4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 1,
+    "nombre": "Rhythm Changes (A)",
+    "tonalidad": "Bb",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Bbmaj7",
+        "notas": [
+          "Bb3",
+          "D4",
+          "F4",
+          "A3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Gm7",
+        "notas": [
+          "G3",
+          "Bb3",
+          "D4",
+          "F4"
+        ],
+        "grado": "VI",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Cm7",
+        "notas": [
+          "C4",
+          "Eb4",
+          "G3",
+          "Bb3"
+        ],
+        "grado": "II",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "F7",
+        "notas": [
+          "F4",
+          "A3",
+          "C4",
+          "Eb4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 1,
+    "nombre": "I-V-vi-IV",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "C",
+        "notas": [
+          "C4",
+          "E4",
+          "G3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G",
+        "notas": [
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Am",
+        "notas": [
+          "A3",
+          "C4",
+          "E4"
+        ],
+        "grado": "VI",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "F",
+        "notas": [
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "IV",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 1,
+    "nombre": "I-IV-V-I (G)",
+    "tonalidad": "G",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "G",
+        "notas": [
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "C",
+        "notas": [
+          "C4",
+          "E4",
+          "G3"
+        ],
+        "grado": "IV",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "D",
+        "notas": [
+          "D4",
+          "F#4",
+          "A3"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G",
+        "notas": [
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 1,
+    "nombre": "vi-IV-I-V",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Am",
+        "notas": [
+          "A3",
+          "C4",
+          "E4"
+        ],
+        "grado": "VI",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "F",
+        "notas": [
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "IV",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "C",
+        "notas": [
+          "C4",
+          "E4",
+          "G3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G",
+        "notas": [
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 1,
+    "nombre": "50s progression",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "C",
+        "notas": [
+          "C4",
+          "E4",
+          "G3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Am",
+        "notas": [
+          "A3",
+          "C4",
+          "E4"
+        ],
+        "grado": "VI",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "F",
+        "notas": [
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "IV",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G",
+        "notas": [
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 1,
+    "nombre": "I-IV-V-I (C)",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Fmaj7",
+        "notas": [
+          "F4",
+          "A3",
+          "C4",
+          "E4"
+        ],
+        "grado": "IV",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G7",
+        "notas": [
+          "G3",
+          "B3",
+          "D4",
+          "F4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 1,
+    "nombre": "I-III-vi-V (G)",
+    "tonalidad": "G",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "G",
+        "notas": [
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Em",
+        "notas": [
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "VI",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "C",
+        "notas": [
+          "C4",
+          "E4",
+          "G3"
+        ],
+        "grado": "IV",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "D",
+        "notas": [
+          "D4",
+          "F#4",
+          "A3"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 1,
+    "nombre": "Ascenso diatónico (F)",
+    "tonalidad": "F",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Fmaj7",
+        "notas": [
+          "F4",
+          "A3",
+          "C4",
+          "E4"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Gm7",
+        "notas": [
+          "G3",
+          "Bb3",
+          "D4",
+          "F4"
+        ],
+        "grado": "II",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Am7",
+        "notas": [
+          "A3",
+          "C4",
+          "E4",
+          "G3"
+        ],
+        "grado": "III",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Bbmaj7",
+        "notas": [
+          "Bb3",
+          "D4",
+          "F4",
+          "A3"
+        ],
+        "grado": "IV",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 1,
+    "nombre": "Samba ii-V",
+    "tonalidad": "Bb",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Cm7",
+        "notas": [
+          "C4",
+          "Eb4",
+          "G3",
+          "Bb3"
+        ],
+        "grado": "II",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "F7",
+        "notas": [
+          "F4",
+          "A3",
+          "C4",
+          "Eb4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Bbmaj7",
+        "notas": [
+          "Bb3",
+          "D4",
+          "F4",
+          "A3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Gm7",
+        "notas": [
+          "G3",
+          "Bb3",
+          "D4",
+          "F4"
+        ],
+        "grado": "VI",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 2,
+    "nombre": "V/ii · A7",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "A7",
+        "notas": [
+          "A3",
+          "C#4",
+          "E4",
+          "G3"
+        ],
+        "grado": "VI",
+        "funcion": "V/ii",
+        "tipo_funcion": "dominante_secundaria",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Dm7",
+        "notas": [
+          "D4",
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "II",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G7",
+        "notas": [
+          "G3",
+          "B3",
+          "D4",
+          "F4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 2,
+    "nombre": "V/vi · E7",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "E7",
+        "notas": [
+          "E4",
+          "G#3",
+          "B3",
+          "D4"
+        ],
+        "grado": "III",
+        "funcion": "V/vi",
+        "tipo_funcion": "dominante_secundaria",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Am7",
+        "notas": [
+          "A3",
+          "C4",
+          "E4",
+          "G3"
+        ],
+        "grado": "VI",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Dm7",
+        "notas": [
+          "D4",
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "II",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G7",
+        "notas": [
+          "G3",
+          "B3",
+          "D4",
+          "F4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 2,
+    "nombre": "V/V · D7",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "D7",
+        "notas": [
+          "D4",
+          "F#4",
+          "A3",
+          "C4"
+        ],
+        "grado": "II",
+        "funcion": "V/V",
+        "tipo_funcion": "dominante_secundaria",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Lydian"
+          }
+        ]
+      },
+      {
+        "simbolo": "G7",
+        "notas": [
+          "G3",
+          "B3",
+          "D4",
+          "F4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 2,
+    "nombre": "Cadena de dominantes",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "B7",
+        "notas": [
+          "B3",
+          "D#4",
+          "F#4",
+          "A3"
+        ],
+        "grado": "VII",
+        "funcion": "V/iii",
+        "tipo_funcion": "dominante_secundaria",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Em7",
+        "notas": [
+          "E4",
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "III",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "A7",
+        "notas": [
+          "A3",
+          "C#4",
+          "E4",
+          "G3"
+        ],
+        "grado": "VI",
+        "funcion": "V/ii",
+        "tipo_funcion": "dominante_secundaria",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Dm7",
+        "notas": [
+          "D4",
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "II",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G7",
+        "notas": [
+          "G3",
+          "B3",
+          "D4",
+          "F4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 2,
+    "nombre": "V/ii en Bb · G7",
+    "tonalidad": "Bb",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Bbmaj7",
+        "notas": [
+          "Bb3",
+          "D4",
+          "F4",
+          "A3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G7",
+        "notas": [
+          "G3",
+          "B3",
+          "D4",
+          "F4"
+        ],
+        "grado": "VI",
+        "funcion": "V/ii",
+        "tipo_funcion": "dominante_secundaria",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Cm7",
+        "notas": [
+          "C4",
+          "Eb4",
+          "G3",
+          "Bb3"
+        ],
+        "grado": "II",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "F7",
+        "notas": [
+          "F4",
+          "A3",
+          "C4",
+          "Eb4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 2,
+    "nombre": "Dominante final · A7",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Dm7",
+        "notas": [
+          "D4",
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "II",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G7",
+        "notas": [
+          "G3",
+          "B3",
+          "D4",
+          "F4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "A7",
+        "notas": [
+          "A3",
+          "C#4",
+          "E4",
+          "G3"
+        ],
+        "grado": "VI",
+        "funcion": "V/ii",
+        "tipo_funcion": "dominante_secundaria",
+        "diatonico": false,
+        "confianza": "media",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 2,
+    "nombre": "I-III-IV-iv (plagal)",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "C",
+        "notas": [
+          "C4",
+          "E4",
+          "G3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "E7",
+        "notas": [
+          "E4",
+          "G#3",
+          "B3",
+          "D4"
+        ],
+        "grado": "III",
+        "funcion": null,
+        "tipo_funcion": "cambio_tonal",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "F",
+        "notas": [
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "IV",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Fm",
+        "notas": [
+          "F4",
+          "Ab3",
+          "C4"
+        ],
+        "grado": "IV",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Phrygian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Aeolian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Locrian"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nivel": 3,
+    "nombre": "bVII prestado",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "C",
+        "notas": [
+          "C4",
+          "E4",
+          "G3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Bb",
+        "notas": [
+          "Bb3",
+          "D4",
+          "F4"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Dorian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Mixolydian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Aeolian"
+          }
+        ]
+      },
+      {
+        "simbolo": "F",
+        "notas": [
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "IV",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "C",
+        "notas": [
+          "C4",
+          "E4",
+          "G3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 3,
+    "nombre": "iv menor (plagal menor)",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "C",
+        "notas": [
+          "C4",
+          "E4",
+          "G3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "F",
+        "notas": [
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "IV",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Fm",
+        "notas": [
+          "F4",
+          "Ab3",
+          "C4"
+        ],
+        "grado": "IV",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Phrygian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Aeolian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Locrian"
+          }
+        ]
+      },
+      {
+        "simbolo": "C",
+        "notas": [
+          "C4",
+          "E4",
+          "G3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 3,
+    "nombre": "Backdoor approach",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Abmaj7",
+        "notas": [
+          "Ab3",
+          "C4",
+          "Eb4",
+          "G3"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Phrygian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Aeolian"
+          }
+        ]
+      },
+      {
+        "simbolo": "Bb7",
+        "notas": [
+          "Bb3",
+          "D4",
+          "F4",
+          "Ab3"
+        ],
+        "grado": null,
+        "funcion": "Backdoor",
+        "tipo_funcion": "backdoor_dominant",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Aeolian"
+          }
+        ]
+      },
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 3,
+    "nombre": "Préstamo rock · bIII bVII",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "C",
+        "notas": [
+          "C4",
+          "E4",
+          "G3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Eb",
+        "notas": [
+          "Eb4",
+          "G3",
+          "Bb3"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Dorian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Phrygian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Aeolian"
+          }
+        ]
+      },
+      {
+        "simbolo": "Bb",
+        "notas": [
+          "Bb3",
+          "D4",
+          "F4"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Dorian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Mixolydian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Aeolian"
+          }
+        ]
+      },
+      {
+        "simbolo": "F",
+        "notas": [
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "IV",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 3,
+    "nombre": "Viraje momentáneo",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Cm7",
+        "notas": [
+          "C4",
+          "Eb4",
+          "G3",
+          "Bb3"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Dorian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Phrygian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Aeolian"
+          }
+        ]
+      },
+      {
+        "simbolo": "F7",
+        "notas": [
+          "F4",
+          "A3",
+          "C4",
+          "Eb4"
+        ],
+        "grado": "IV",
+        "funcion": null,
+        "tipo_funcion": "cambio_tonal",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Dorian"
+          }
+        ]
+      },
+      {
+        "simbolo": "Bbmaj7",
+        "notas": [
+          "Bb3",
+          "D4",
+          "F4",
+          "A3"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Dorian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Mixolydian"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nivel": 4,
+    "nombre": "ii-V-I · menor (Am)",
+    "tonalidad": "A",
+    "modo": "aeolian",
+    "acordes": [
+      {
+        "simbolo": "Bm7b5",
+        "notas": [
+          "B3",
+          "D4",
+          "F4",
+          "A3"
+        ],
+        "grado": "II",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "E7",
+        "notas": [
+          "E4",
+          "G#3",
+          "B3",
+          "D4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": [
+          {
+            "tipo": "relativo",
+            "tonica": "F#"
+          }
+        ]
+      },
+      {
+        "simbolo": "Am7",
+        "notas": [
+          "A3",
+          "C4",
+          "E4",
+          "G3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 4,
+    "nombre": "i-IV-V-i (menor)",
+    "tonalidad": "A",
+    "modo": "aeolian",
+    "acordes": [
+      {
+        "simbolo": "Am",
+        "notas": [
+          "A3",
+          "C4",
+          "E4"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Dm",
+        "notas": [
+          "D4",
+          "F4",
+          "A3"
+        ],
+        "grado": "IV",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "E7",
+        "notas": [
+          "E4",
+          "G#3",
+          "B3",
+          "D4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": [
+          {
+            "tipo": "relativo",
+            "tonica": "F#"
+          }
+        ]
+      },
+      {
+        "simbolo": "Am",
+        "notas": [
+          "A3",
+          "C4",
+          "E4"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 4,
+    "nombre": "i-bVI-V (menor)",
+    "tonalidad": "A",
+    "modo": "aeolian",
+    "acordes": [
+      {
+        "simbolo": "Am",
+        "notas": [
+          "A3",
+          "C4",
+          "E4"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "F",
+        "notas": [
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "bVI",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "E7",
+        "notas": [
+          "E4",
+          "G#3",
+          "B3",
+          "D4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": [
+          {
+            "tipo": "relativo",
+            "tonica": "F#"
+          }
+        ]
+      },
+      {
+        "simbolo": "Am",
+        "notas": [
+          "A3",
+          "C4",
+          "E4"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 4,
+    "nombre": "i-bVII-bVI-V (menor natural)",
+    "tonalidad": "A",
+    "modo": "aeolian",
+    "acordes": [
+      {
+        "simbolo": "Am",
+        "notas": [
+          "A3",
+          "C4",
+          "E4"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G",
+        "notas": [
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "bVII",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "F",
+        "notas": [
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "bVI",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "E7",
+        "notas": [
+          "E4",
+          "G#3",
+          "B3",
+          "D4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": false,
+        "confianza": "media",
+        "hints": [
+          {
+            "tipo": "relativo",
+            "tonica": "F#"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nivel": 4,
+    "nombre": "iiø-V-i",
+    "tonalidad": "A",
+    "modo": "aeolian",
+    "acordes": [
+      {
+        "simbolo": "Bm7b5",
+        "notas": [
+          "B3",
+          "D4",
+          "F4",
+          "A3"
+        ],
+        "grado": "II",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "E7",
+        "notas": [
+          "E4",
+          "G#3",
+          "B3",
+          "D4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": [
+          {
+            "tipo": "relativo",
+            "tonica": "F#"
+          }
+        ]
+      },
+      {
+        "simbolo": "Am",
+        "notas": [
+          "A3",
+          "C4",
+          "E4"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 4,
+    "nombre": "i-iv-V-i (menor armónico)",
+    "tonalidad": "A",
+    "modo": "aeolian",
+    "acordes": [
+      {
+        "simbolo": "Am",
+        "notas": [
+          "A3",
+          "C4",
+          "E4"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Dm",
+        "notas": [
+          "D4",
+          "F4",
+          "A3"
+        ],
+        "grado": "IV",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "E7",
+        "notas": [
+          "E4",
+          "G#3",
+          "B3",
+          "D4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": [
+          {
+            "tipo": "relativo",
+            "tonica": "F#"
+          }
+        ]
+      },
+      {
+        "simbolo": "Am",
+        "notas": [
+          "A3",
+          "C4",
+          "E4"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 4,
+    "nombre": "i-bVI-bVII-i (rock menor)",
+    "tonalidad": "A",
+    "modo": "aeolian",
+    "acordes": [
+      {
+        "simbolo": "Am",
+        "notas": [
+          "A3",
+          "C4",
+          "E4"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "F",
+        "notas": [
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "bVI",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G",
+        "notas": [
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "bVII",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Am",
+        "notas": [
+          "A3",
+          "C4",
+          "E4"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 4,
+    "nombre": "Menor melódica",
+    "tonalidad": "A",
+    "modo": "aeolian",
+    "acordes": [
+      {
+        "simbolo": "AmM7",
+        "notas": [
+          "A3",
+          "C4",
+          "E4",
+          "G#3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Dm7",
+        "notas": [
+          "D4",
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "IV",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "E7",
+        "notas": [
+          "E4",
+          "G#3",
+          "B3",
+          "D4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": [
+          {
+            "tipo": "relativo",
+            "tonica": "F#"
+          }
+        ]
+      },
+      {
+        "simbolo": "AmM7",
+        "notas": [
+          "A3",
+          "C4",
+          "E4",
+          "G#3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": false,
+        "confianza": "media",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 4,
+    "nombre": "Bossa turnaround",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Cm7",
+        "notas": [
+          "C4",
+          "Eb4",
+          "G3",
+          "Bb3"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Dorian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Phrygian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Aeolian"
+          }
+        ]
+      },
+      {
+        "simbolo": "Bm7b5",
+        "notas": [
+          "B3",
+          "D4",
+          "F4",
+          "A3"
+        ],
+        "grado": "VII",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "E7",
+        "notas": [
+          "E4",
+          "G#3",
+          "B3",
+          "D4"
+        ],
+        "grado": "III",
+        "funcion": "V/vi",
+        "tipo_funcion": "dominante_secundaria",
+        "diatonico": false,
+        "confianza": "media",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 5,
+    "nombre": "Blues Jazz (F)",
+    "tonalidad": "F",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "F7",
+        "notas": [
+          "F4",
+          "A3",
+          "C4",
+          "Eb4"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Mixolydian"
+          }
+        ]
+      },
+      {
+        "simbolo": "Bb7",
+        "notas": [
+          "Bb3",
+          "D4",
+          "F4",
+          "Ab3"
+        ],
+        "grado": "IV",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Dorian"
+          }
+        ]
+      },
+      {
+        "simbolo": "F7",
+        "notas": [
+          "F4",
+          "A3",
+          "C4",
+          "Eb4"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Mixolydian"
+          }
+        ]
+      },
+      {
+        "simbolo": "C7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "Bb3"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 5,
+    "nombre": "Blues en G",
+    "tonalidad": "G",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "G7",
+        "notas": [
+          "G3",
+          "B3",
+          "D4",
+          "F4"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Mixolydian"
+          }
+        ]
+      },
+      {
+        "simbolo": "C7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "Bb3"
+        ],
+        "grado": "IV",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Dorian"
+          }
+        ]
+      },
+      {
+        "simbolo": "G7",
+        "notas": [
+          "G3",
+          "B3",
+          "D4",
+          "F4"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Mixolydian"
+          }
+        ]
+      },
+      {
+        "simbolo": "D7",
+        "notas": [
+          "D4",
+          "F#4",
+          "A3",
+          "C4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 5,
+    "nombre": "Blues menor (Am)",
+    "tonalidad": "A",
+    "modo": "aeolian",
+    "acordes": [
+      {
+        "simbolo": "Am7",
+        "notas": [
+          "A3",
+          "C4",
+          "E4",
+          "G3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Dm7",
+        "notas": [
+          "D4",
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "IV",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Am7",
+        "notas": [
+          "A3",
+          "C4",
+          "E4",
+          "G3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "E7",
+        "notas": [
+          "E4",
+          "G#3",
+          "B3",
+          "D4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": false,
+        "confianza": "media",
+        "hints": [
+          {
+            "tipo": "relativo",
+            "tonica": "F#"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nivel": 5,
+    "nombre": "Blues básico (C)",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "C7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "Bb3"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Mixolydian"
+          }
+        ]
+      },
+      {
+        "simbolo": "F7",
+        "notas": [
+          "F4",
+          "A3",
+          "C4",
+          "Eb4"
+        ],
+        "grado": "IV",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Dorian"
+          }
+        ]
+      },
+      {
+        "simbolo": "G7",
+        "notas": [
+          "G3",
+          "B3",
+          "D4",
+          "F4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 5,
+    "nombre": "Blues jazz 12c (F)",
+    "tonalidad": "F",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "F7",
+        "notas": [
+          "F4",
+          "A3",
+          "C4",
+          "Eb4"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Mixolydian"
+          }
+        ]
+      },
+      {
+        "simbolo": "Bb7",
+        "notas": [
+          "Bb3",
+          "D4",
+          "F4",
+          "Ab3"
+        ],
+        "grado": "IV",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Dorian"
+          }
+        ]
+      },
+      {
+        "simbolo": "F7",
+        "notas": [
+          "F4",
+          "A3",
+          "C4",
+          "Eb4"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Mixolydian"
+          }
+        ]
+      },
+      {
+        "simbolo": "F7",
+        "notas": [
+          "F4",
+          "A3",
+          "C4",
+          "Eb4"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Mixolydian"
+          }
+        ]
+      },
+      {
+        "simbolo": "Bb7",
+        "notas": [
+          "Bb3",
+          "D4",
+          "F4",
+          "Ab3"
+        ],
+        "grado": "IV",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Dorian"
+          }
+        ]
+      },
+      {
+        "simbolo": "Bdim7",
+        "notas": [
+          "B3",
+          "D4",
+          "F4",
+          "Ab3"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": false,
+        "confianza": null,
+        "hints": []
+      },
+      {
+        "simbolo": "F7",
+        "notas": [
+          "F4",
+          "A3",
+          "C4",
+          "Eb4"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Mixolydian"
+          }
+        ]
+      },
+      {
+        "simbolo": "D7",
+        "notas": [
+          "D4",
+          "F#4",
+          "A3",
+          "C4"
+        ],
+        "grado": "VI",
+        "funcion": "V/ii",
+        "tipo_funcion": "dominante_secundaria",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Gm7",
+        "notas": [
+          "G3",
+          "Bb3",
+          "D4",
+          "F4"
+        ],
+        "grado": "II",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "C7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "Bb3"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "F7",
+        "notas": [
+          "F4",
+          "A3",
+          "C4",
+          "Eb4"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Mixolydian"
+          }
+        ]
+      },
+      {
+        "simbolo": "C7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "Bb3"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 6,
+    "nombre": "Dórico vamp (Dm7-G)",
+    "tonalidad": "D",
+    "modo": "dorian",
+    "acordes": [
+      {
+        "simbolo": "Dm7",
+        "notas": [
+          "D4",
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G",
+        "notas": [
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "IV",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Dm7",
+        "notas": [
+          "D4",
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G",
+        "notas": [
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "IV",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 6,
+    "nombre": "Dórico cadencia (I-II-I-bVII)",
+    "tonalidad": "D",
+    "modo": "dorian",
+    "acordes": [
+      {
+        "simbolo": "Dm7",
+        "notas": [
+          "D4",
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Em7",
+        "notas": [
+          "E4",
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "II",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Dm7",
+        "notas": [
+          "D4",
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "C",
+        "notas": [
+          "C4",
+          "E4",
+          "G3"
+        ],
+        "grado": "bVII",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 6,
+    "nombre": "Dórico medieval",
+    "tonalidad": "D",
+    "modo": "dorian",
+    "acordes": [
+      {
+        "simbolo": "Dm",
+        "notas": [
+          "D4",
+          "F4",
+          "A3"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Em",
+        "notas": [
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "II",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "F",
+        "notas": [
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "bIII",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G",
+        "notas": [
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "IV",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 6,
+    "nombre": "Modal Dorian (I-II-IV-V7)",
+    "tonalidad": "D",
+    "modo": "dorian",
+    "acordes": [
+      {
+        "simbolo": "Dm7",
+        "notas": [
+          "D4",
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Em7",
+        "notas": [
+          "E4",
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "II",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Gm7",
+        "notas": [
+          "G3",
+          "Bb3",
+          "D4",
+          "F4"
+        ],
+        "grado": "IV",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Phrygian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Aeolian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Locrian"
+          }
+        ]
+      },
+      {
+        "simbolo": "A7",
+        "notas": [
+          "A3",
+          "C#4",
+          "E4",
+          "G3"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": false,
+        "confianza": "media",
+        "hints": [
+          {
+            "tipo": "relativo",
+            "tonica": "B"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nivel": 6,
+    "nombre": "Mixolidio rock (G)",
+    "tonalidad": "G",
+    "modo": "mixolydian",
+    "acordes": [
+      {
+        "simbolo": "G",
+        "notas": [
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "F",
+        "notas": [
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "bVII",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "C",
+        "notas": [
+          "C4",
+          "E4",
+          "G3"
+        ],
+        "grado": "IV",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G",
+        "notas": [
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 6,
+    "nombre": "Lidio II cadencia",
+    "tonalidad": "C",
+    "modo": "lydian",
+    "acordes": [
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "D",
+        "notas": [
+          "D4",
+          "F#4",
+          "A3"
+        ],
+        "grado": "II",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 6,
+    "nombre": "Lidio flotante",
+    "tonalidad": "C",
+    "modo": "lydian",
+    "acordes": [
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "D",
+        "notas": [
+          "D4",
+          "F#4",
+          "A3"
+        ],
+        "grado": "II",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Em7",
+        "notas": [
+          "E4",
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "III",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 6,
+    "nombre": "Frigio corto (Em-F)",
+    "tonalidad": "E",
+    "modo": "phrygian",
+    "acordes": [
+      {
+        "simbolo": "Em",
+        "notas": [
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "F",
+        "notas": [
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "bII",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Em",
+        "notas": [
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 6,
+    "nombre": "Andaluza (frigio)",
+    "tonalidad": "A",
+    "modo": "phrygian",
+    "acordes": [
+      {
+        "simbolo": "Am",
+        "notas": [
+          "A3",
+          "C4",
+          "E4"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G",
+        "notas": [
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "bVII",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Dorian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Mixolydian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Aeolian"
+          }
+        ]
+      },
+      {
+        "simbolo": "F",
+        "notas": [
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "bVI",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "E",
+        "notas": [
+          "E4",
+          "G#3",
+          "B3"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": false,
+        "confianza": "media",
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Lydian"
+          },
+          {
+            "tipo": "relativo",
+            "tonica": "F#"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nivel": 6,
+    "nombre": "Por arriba (Phrygian dominant)",
+    "tonalidad": "E",
+    "modo": "phrygian",
+    "acordes": [
+      {
+        "simbolo": "E",
+        "notas": [
+          "E4",
+          "G#3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Lydian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Mixolydian"
+          },
+          {
+            "tipo": "relativo",
+            "tonica": "C#"
+          }
+        ]
+      },
+      {
+        "simbolo": "F",
+        "notas": [
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "bII",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G",
+        "notas": [
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "bIII",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "E",
+        "notas": [
+          "E4",
+          "G#3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Lydian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Mixolydian"
+          },
+          {
+            "tipo": "relativo",
+            "tonica": "C#"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nivel": 7,
+    "nombre": "Backdoor resolve (Bb7)",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Dm7",
+        "notas": [
+          "D4",
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "II",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G7",
+        "notas": [
+          "G3",
+          "B3",
+          "D4",
+          "F4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Bb7",
+        "notas": [
+          "Bb3",
+          "D4",
+          "F4",
+          "Ab3"
+        ],
+        "grado": null,
+        "funcion": "Backdoor",
+        "tipo_funcion": "backdoor_dominant",
+        "diatonico": false,
+        "confianza": "media",
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Aeolian"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nivel": 7,
+    "nombre": "Backdoor puro (Bb7→I)",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Bb7",
+        "notas": [
+          "Bb3",
+          "D4",
+          "F4",
+          "Ab3"
+        ],
+        "grado": null,
+        "funcion": "Backdoor",
+        "tipo_funcion": "backdoor_dominant",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Aeolian"
+          }
+        ]
+      },
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 7,
+    "nombre": "SubV (Db7→I)",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Dm7",
+        "notas": [
+          "D4",
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "II",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Db7",
+        "notas": [
+          "Db4",
+          "F4",
+          "Ab3"
+        ],
+        "grado": null,
+        "funcion": "SubV",
+        "tipo_funcion": "tritone_substitution",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 7,
+    "nombre": "SubV extendido (G7→Db7→I)",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Dm7",
+        "notas": [
+          "D4",
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "II",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G7",
+        "notas": [
+          "G3",
+          "B3",
+          "D4",
+          "F4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Db7",
+        "notas": [
+          "Db4",
+          "F4",
+          "Ab3"
+        ],
+        "grado": null,
+        "funcion": "SubV",
+        "tipo_funcion": "tritone_substitution",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 7,
+    "nombre": "Cromatismo descendente",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Fmaj7",
+        "notas": [
+          "F4",
+          "A3",
+          "C4",
+          "E4"
+        ],
+        "grado": "IV",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Fm7",
+        "notas": [
+          "F4",
+          "Ab3",
+          "C4",
+          "Eb4"
+        ],
+        "grado": "IV",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Phrygian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Aeolian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Locrian"
+          }
+        ]
+      },
+      {
+        "simbolo": "Em7",
+        "notas": [
+          "E4",
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "III",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "A7",
+        "notas": [
+          "A3",
+          "C#4",
+          "E4",
+          "G3"
+        ],
+        "grado": "VI",
+        "funcion": "V/ii",
+        "tipo_funcion": "dominante_secundaria",
+        "diatonico": false,
+        "confianza": "media",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 8,
+    "nombre": "Coltrane Changes (C)",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Eb7",
+        "notas": [
+          "Eb4",
+          "G3",
+          "Bb3",
+          "Db4"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": "cambio_tonal",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Phrygian"
+          }
+        ]
+      },
+      {
+        "simbolo": "Abmaj7",
+        "notas": [
+          "Ab3",
+          "C4",
+          "Eb4",
+          "G3"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Phrygian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Aeolian"
+          }
+        ]
+      },
+      {
+        "simbolo": "B7",
+        "notas": [
+          "B3",
+          "D#4",
+          "F#4",
+          "A3"
+        ],
+        "grado": "VII",
+        "funcion": "V/iii",
+        "tipo_funcion": "dominante_secundaria",
+        "diatonico": false,
+        "confianza": "media",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 8,
+    "nombre": "Coltrane expandido (B)",
+    "tonalidad": "B",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Bmaj7",
+        "notas": [
+          "B3",
+          "D#4",
+          "F#4",
+          "A#3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "D7",
+        "notas": [
+          "D4",
+          "F#4",
+          "A3",
+          "C4"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": "cambio_tonal",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Phrygian"
+          }
+        ]
+      },
+      {
+        "simbolo": "Gmaj7",
+        "notas": [
+          "G3",
+          "B3",
+          "D4",
+          "F#4"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Phrygian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Aeolian"
+          }
+        ]
+      },
+      {
+        "simbolo": "Bb7",
+        "notas": [
+          "Bb3",
+          "D4",
+          "F4",
+          "Ab3"
+        ],
+        "grado": "VII",
+        "funcion": null,
+        "tipo_funcion": "cambio_tonal",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Ebmaj7",
+        "notas": [
+          "Eb4",
+          "G3",
+          "Bb3",
+          "D4"
+        ],
+        "grado": "III",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": false,
+        "confianza": null,
+        "hints": []
+      }
+    ],
+    "patron": "coltrane_cycle"
+  },
+  {
+    "nivel": 8,
+    "nombre": "Coltrane ciclo completo (C)",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Eb7",
+        "notas": [
+          "Eb4",
+          "G3",
+          "Bb3",
+          "Db4"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": "cambio_tonal",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Phrygian"
+          }
+        ]
+      },
+      {
+        "simbolo": "Abmaj7",
+        "notas": [
+          "Ab3",
+          "C4",
+          "Eb4",
+          "G3"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Phrygian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Aeolian"
+          }
+        ]
+      },
+      {
+        "simbolo": "B7",
+        "notas": [
+          "B3",
+          "D#4",
+          "F#4",
+          "A3"
+        ],
+        "grado": "VII",
+        "funcion": null,
+        "tipo_funcion": "cambio_tonal",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Emaj7",
+        "notas": [
+          "E4",
+          "G#3",
+          "B3",
+          "D#4"
+        ],
+        "grado": "III",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": false,
+        "confianza": null,
+        "hints": []
+      },
+      {
+        "simbolo": "G7",
+        "notas": [
+          "G3",
+          "B3",
+          "D4",
+          "F4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ],
+    "patron": "coltrane_cycle"
+  },
+  {
+    "nivel": 8,
+    "nombre": "Terceras mayores (B)",
+    "tonalidad": "B",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Bmaj7",
+        "notas": [
+          "B3",
+          "D#4",
+          "F#4",
+          "A#3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Dmaj7",
+        "notas": [
+          "D4",
+          "F#4",
+          "A3",
+          "C#4"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Dorian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Aeolian"
+          }
+        ]
+      },
+      {
+        "simbolo": "Fmaj7",
+        "notas": [
+          "F4",
+          "A3",
+          "C4",
+          "E4"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Locrian"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nivel": 9,
+    "nombre": "Semitono vecino (Db)",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Dbmaj7",
+        "notas": [
+          "Db4",
+          "F4",
+          "Ab3",
+          "C4"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Phrygian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Locrian"
+          }
+        ]
+      },
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 9,
+    "nombre": "Ciclo aumentado",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Ebmaj7",
+        "notas": [
+          "Eb4",
+          "G3",
+          "Bb3",
+          "D4"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Dorian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Aeolian"
+          }
+        ]
+      },
+      {
+        "simbolo": "Gbmaj7",
+        "notas": [
+          "Gb4",
+          "Bb3",
+          "Db4",
+          "F4"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Locrian"
+          }
+        ]
+      },
+      {
+        "simbolo": "Amaj7",
+        "notas": [
+          "A3",
+          "C#4",
+          "E4",
+          "G#3"
+        ],
+        "grado": "VI",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": false,
+        "confianza": null,
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 9,
+    "nombre": "Cromático descendente (C-Bb-Ab-G)",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "C",
+        "notas": [
+          "C4",
+          "E4",
+          "G3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Bb",
+        "notas": [
+          "Bb3",
+          "D4",
+          "F4"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Dorian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Mixolydian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Aeolian"
+          }
+        ]
+      },
+      {
+        "simbolo": "Ab",
+        "notas": [
+          "Ab3",
+          "C4",
+          "Eb4"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Phrygian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Aeolian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Locrian"
+          }
+        ]
+      },
+      {
+        "simbolo": "G",
+        "notas": [
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 9,
+    "nombre": "Aproximación cromática a G7",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "A7",
+        "notas": [
+          "A3",
+          "C#4",
+          "E4",
+          "G3"
+        ],
+        "grado": "VI",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Ab7",
+        "notas": [
+          "Ab3",
+          "C4",
+          "Eb4",
+          "Gb4"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Locrian"
+          }
+        ]
+      },
+      {
+        "simbolo": "G7",
+        "notas": [
+          "G3",
+          "B3",
+          "D4",
+          "F4"
+        ],
+        "grado": "V",
+        "funcion": "Dominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 9,
+    "nombre": "Cadena SubV (5→1)",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "E7",
+        "notas": [
+          "E4",
+          "G#3",
+          "B3",
+          "D4"
+        ],
+        "grado": "III",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Eb7",
+        "notas": [
+          "Eb4",
+          "G3",
+          "Bb3",
+          "Db4"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Phrygian"
+          }
+        ]
+      },
+      {
+        "simbolo": "D7",
+        "notas": [
+          "D4",
+          "F#4",
+          "A3",
+          "C4"
+        ],
+        "grado": "II",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Lydian"
+          }
+        ]
+      },
+      {
+        "simbolo": "Db7",
+        "notas": [
+          "Db4",
+          "F4",
+          "Ab3"
+        ],
+        "grado": null,
+        "funcion": "SubV",
+        "tipo_funcion": "tritone_substitution",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 9,
+    "nombre": "Cadena SubV completa",
+    "tonalidad": "C",
+    "modo": "ionian",
+    "acordes": [
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "F#7",
+        "notas": [
+          "F#4",
+          "A#3",
+          "C#4",
+          "E4"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "F7",
+        "notas": [
+          "F4",
+          "A3",
+          "C4",
+          "Eb4"
+        ],
+        "grado": "IV",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Dorian"
+          }
+        ]
+      },
+      {
+        "simbolo": "E7",
+        "notas": [
+          "E4",
+          "G#3",
+          "B3",
+          "D4"
+        ],
+        "grado": "III",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Eb7",
+        "notas": [
+          "Eb4",
+          "G3",
+          "Bb3",
+          "Db4"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Phrygian"
+          }
+        ]
+      },
+      {
+        "simbolo": "D7",
+        "notas": [
+          "D4",
+          "F#4",
+          "A3",
+          "C4"
+        ],
+        "grado": "II",
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Lydian"
+          }
+        ]
+      },
+      {
+        "simbolo": "Db7",
+        "notas": [
+          "Db4",
+          "F4",
+          "Ab3"
+        ],
+        "grado": null,
+        "funcion": "SubV",
+        "tipo_funcion": "tritone_substitution",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 10,
+    "nombre": "Lidio vamp (I-II-III-II)",
+    "tonalidad": "C",
+    "modo": "lydian",
+    "acordes": [
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "D",
+        "notas": [
+          "D4",
+          "F#4",
+          "A3"
+        ],
+        "grado": "II",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Em7",
+        "notas": [
+          "E4",
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "III",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "D",
+        "notas": [
+          "D4",
+          "F#4",
+          "A3"
+        ],
+        "grado": "II",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 10,
+    "nombre": "Eólico rock (Am)",
+    "tonalidad": "A",
+    "modo": "aeolian",
+    "acordes": [
+      {
+        "simbolo": "Am",
+        "notas": [
+          "A3",
+          "C4",
+          "E4"
+        ],
+        "grado": "I",
+        "funcion": "Tónica",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G",
+        "notas": [
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "bVII",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "F",
+        "notas": [
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "bVI",
+        "funcion": "Subdominante",
+        "tipo_funcion": "tonal",
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G",
+        "notas": [
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "bVII",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 10,
+    "nombre": "Dórico ambiguo (Dm7-Bb)",
+    "tonalidad": "D",
+    "modo": "dorian",
+    "acordes": [
+      {
+        "simbolo": "Dm7",
+        "notas": [
+          "D4",
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "G",
+        "notas": [
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "IV",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Dm7",
+        "notas": [
+          "D4",
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Bb",
+        "notas": [
+          "Bb3",
+          "D4",
+          "F4"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Phrygian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Aeolian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Locrian"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nivel": 10,
+    "nombre": "Mixolidio con bVII-bVI",
+    "tonalidad": "G",
+    "modo": "mixolydian",
+    "acordes": [
+      {
+        "simbolo": "G",
+        "notas": [
+          "G3",
+          "B3",
+          "D4"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "F",
+        "notas": [
+          "F4",
+          "A3",
+          "C4"
+        ],
+        "grado": "bVII",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "C",
+        "notas": [
+          "C4",
+          "E4",
+          "G3"
+        ],
+        "grado": "IV",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Bb",
+        "notas": [
+          "Bb3",
+          "D4",
+          "F4"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Dorian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Phrygian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Aeolian"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nivel": 10,
+    "nombre": "Lidio + préstamo bVII",
+    "tonalidad": "C",
+    "modo": "lydian",
+    "acordes": [
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "D",
+        "notas": [
+          "D4",
+          "F#4",
+          "A3"
+        ],
+        "grado": "II",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Bbmaj7",
+        "notas": [
+          "Bb3",
+          "D4",
+          "F4",
+          "A3"
+        ],
+        "grado": null,
+        "funcion": null,
+        "tipo_funcion": "prestamo_modal",
+        "diatonico": false,
+        "confianza": null,
+        "hints": [
+          {
+            "tipo": "modal",
+            "modo": "Dorian"
+          },
+          {
+            "tipo": "modal",
+            "modo": "Mixolydian"
+          }
+        ]
+      },
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  },
+  {
+    "nivel": 10,
+    "nombre": "Lidio → dominante secundaria",
+    "tonalidad": "C",
+    "modo": "lydian",
+    "acordes": [
+      {
+        "simbolo": "Cmaj7",
+        "notas": [
+          "C4",
+          "E4",
+          "G3",
+          "B3"
+        ],
+        "grado": "I",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "D",
+        "notas": [
+          "D4",
+          "F#4",
+          "A3"
+        ],
+        "grado": "II",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "E7",
+        "notas": [
+          "E4",
+          "G#3",
+          "B3",
+          "D4"
+        ],
+        "grado": "III",
+        "funcion": "V/vi",
+        "tipo_funcion": "dominante_secundaria",
+        "diatonico": false,
+        "confianza": "alta",
+        "hints": []
+      },
+      {
+        "simbolo": "Am7",
+        "notas": [
+          "A3",
+          "C4",
+          "E4",
+          "G3"
+        ],
+        "grado": "VI",
+        "funcion": null,
+        "tipo_funcion": null,
+        "diatonico": true,
+        "confianza": "alta",
+        "hints": []
+      }
+    ]
+  }
+]

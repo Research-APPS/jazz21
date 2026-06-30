@@ -102,7 +102,7 @@ def _normalize_suffix(suffix: str) -> str:
     # Δ / maj para maj7 (ya parcialmente unicode → maj)
     t = re.sub(r"(?i)maj\s*7\b", "maj7", t)
     t = re.sub(r"(?i)\bmaj7\b", "maj7", t)
-    t = re.sub(r"(?i)^M7$", "maj7", t)
+    t = re.sub(r"^M7$", "maj7", t)  # case-sensitive: M7 → maj7, m7 stays m7
     # CM triada mayor explícita: “M” al final típico Maj (C triada)
     if re.match(r"^M$", t):
         return "M"

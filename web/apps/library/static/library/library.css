@@ -1,0 +1,106 @@
+.library-page {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.library-lead {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.library-form p {
+  margin-bottom: 0.75rem;
+}
+
+.library-form input {
+  width: 100%;
+  max-width: 20rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+}
+
+.library-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.library-card {
+  padding: 1rem 1.2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.library-card-title {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+}
+
+.library-card-title a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.library-card-title a:hover {
+  color: var(--accent);
+}
+
+.library-card-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0 0 0.75rem;
+}
+
+.library-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.library-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.4rem 0.6rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.75rem;
+}
+
+.library-chip strong {
+  font-family: var(--mono);
+}
+
+.library-chip small {
+  color: var(--muted);
+}
+
+.library-empty,
+.library-meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.library-logout-btn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0;
+}
+
+.library-logout-btn:hover {
+  color: var(--text);
+}
+
+.library-page .prog-widget {
+  margin: 1.5rem 0 2rem;
+}

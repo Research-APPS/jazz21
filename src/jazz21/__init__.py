@@ -8,6 +8,11 @@ from jazz21.manifest import (
     triadas_de,
     cuatriadas_de,
     analizar_en_tonalidad,
+    analizar_progresion,
+    detectar_patron_progresion,
+    progresion_para_ui,
+    sugerencias_contextuales,
+    notas_audio_de,
 )
 from jazz21 import concepts
 
@@ -22,5 +27,10 @@ __all__ = [
     "triadas_de",
     "cuatriadas_de",
     "analizar_en_tonalidad",
+    "analizar_progresion",
+    "detectar_patron_progresion",
+    "progresion_para_ui",
+    "sugerencias_contextuales",
+    "notas_audio_de",
     "concepts",
 ]

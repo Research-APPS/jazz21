@@ -66,7 +66,7 @@ for a in prestamos:
     r = jazz21.analizar_en_tonalidad(tonalidad, a)
     hints = r.get("hints") or []
     procedencia = ", ".join(
-        f"{h['modo']} ({h['tonica']})" for h in hints if h.get("tipo") == "modal"
+        h['modo'] for h in hints if h.get("tipo") == "modal"
     ) or "sin procedencia identificada"
     print(f"  {a:<5}  ←  {procedencia}")
 </textarea>
@@ -96,6 +96,7 @@ for a in prestamos:
     </nav>
   </main>
 
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
   <script src="../js/pyodide-playground.js"></script>
 </body>
 </html>

@@ -76,7 +76,7 @@ CONCEPTS: dict[str, Concept] = {
                 "En jazz21 la detectamos cuando la raíz tiene tercera mayor y la quinta justa abajo "
                 "es un grado diatónico de la tonalidad activa."
             ),
-            examples=["E7 → Am en C mayor (V/VI)", "A7 → Dm en C mayor (V/II)", "D7 → G en C mayor (V/V)"],
+            examples=["E7 → Am en C mayor (V/vi)", "A7 → Dm en C mayor (V/ii)", "D7 → G en C mayor (V/V)"],
             sources=["Piston 1941 · Harmony", "Riemann 1893 · Vereinfachte Harmonielehre", "DCML Harmony Annotation Standard"],
         ),
         Concept(

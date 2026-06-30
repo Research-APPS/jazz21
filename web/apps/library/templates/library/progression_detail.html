@@ -1,0 +1,22 @@
+{% extends "library/base.html" %}
+
+{% block title %}{{ progression.title }}{% endblock %}
+
+{% block content %}
+<p><a href="{% url 'profile' %}">← Perfil</a></p>
+<p class="library-meta">
+  <a href="{% url 'progression_export' progression.uuid %}">export.json</a>
+  · UUID {{ progression.uuid }}
+</p>
+
+<div class="prog-widget" id="prog-widget" data-library-uuid="{{ progression.uuid }}">
+  <div class="prog-header">
+    <span class="prog-nombre" style="color:var(--muted)">Cargando progresión…</span>
+  </div>
+</div>
+{{ widget_bootstrap|json_script:"prog-widget-bootstrap" }}
+
+<script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
+<script src="/js/pyodide-playground.js"></script>
+<script src="/js/progresiones-widget.js"></script>
+{% endblock %}

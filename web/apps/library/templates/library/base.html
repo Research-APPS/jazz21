@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}library{% endblock %} · jazz21</title>
+  <link rel="stylesheet" href="/css/biblioteca.css" />
+  <link rel="stylesheet" href="{% static 'library/library.css' %}" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">jazz21 <span>· library</span></div>
+    <nav class="nav-links">
+      <a href="/">Inicio</a>
+      <a href="{% url 'profile' %}">Perfil</a>
+      <form method="post" action="{% url 'logout' %}" style="display:inline">
+        {% csrf_token %}
+        <button type="submit" class="library-logout-btn">Salir</button>
+      </form>
+    </nav>
+  </header>
+  <main class="library-page">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

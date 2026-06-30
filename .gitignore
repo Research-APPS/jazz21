@@ -13,4 +13,5 @@ dist/
 .venv/
 venv/
 .env
+web/db.sqlite3
 site/wheels/*.whl

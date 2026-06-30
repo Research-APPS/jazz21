@@ -20,13 +20,50 @@
     <section class="hero">
       <h1>Biblioteca jazz21</h1>
       <p class="lead">
-        Guías interactivas en español: aprende Python en contexto y prueba la API de jazz21
-        en el navegador (Pyodide). La primera ejecución tarda ~10 s en cargar music21.
+        Teoría, guías interactivas y API Python para análisis armónico.
+        Los playgrounds ejecutan código en el navegador con Pyodide — la primera carga tarda ~10 s.
       </p>
     </section>
 
-    <p class="section-label">Armonía</p>
+    <div class="prog-widget" id="prog-widget">
+      <div class="prog-header">
+        <span class="prog-nombre" style="color:var(--muted)">Cargando progresión…</span>
+      </div>
+    </div>
+
+    <p class="section-label">Teoría armónica</p>
+    <p class="section-desc">El vocabulario que jazz21 necesita para funcionar.</p>
     <div class="card-grid">
+      <a class="card" href="teoria/funcion-armonica.html">
+        <h3>Función armónica</h3>
+        <p>Tónica, Subdominante y Dominante — el papel estructural de un acorde en su contexto.</p>
+        <span class="tag teoria">Concepto</span>
+      </a>
+      <a class="card" href="teoria/acorde-diatonico.html">
+        <h3>Acorde diatónico</h3>
+        <p>Un acorde es diatónico si todos sus pitch-classes pertenecen a la escala activa.</p>
+        <span class="tag teoria">Concepto</span>
+      </a>
+      <a class="card" href="teoria/prestamo-modal.html">
+        <h3>Préstamo modal</h3>
+        <p>Acorde procedente de un modo paralelo con la misma tónica — sin modular.</p>
+        <span class="tag teoria">Concepto</span>
+      </a>
+      <a class="card" href="teoria/grado-vs-funcion.html">
+        <h3>Grado vs función</h3>
+        <p>El grado es posición en la escala; la función es el papel en el discurso armónico.</p>
+        <span class="tag teoria">Concepto</span>
+      </a>
+    </div>
+
+    <p class="section-label">Guías interactivas</p>
+    <p class="section-desc">Herramientas interactivas — analiza acordes en el navegador con Pyodide.</p>
+    <div class="card-grid">
+      <a class="card" href="armonia/campo-armonico.html">
+        <h3>Campo Armónico</h3>
+        <p>Escribe acordes y jazz21 infiere grado y función en tiempo real. Detecta acordes no diatónicos.</p>
+        <span class="tag live">Interactivo</span>
+      </a>
       <a class="card" href="armonia/triadas.html">
         <h3>Triadas</h3>
         <p>Las 7 triadas diatónicas de C, sus funciones y estructura de intervalos.</p>
@@ -37,22 +74,13 @@
         <p>De la triada al acorde de séptima: maj7, m7, dom7 y m7b5 en acción.</p>
         <span class="tag live">Interactivo</span>
       </a>
-      <a class="card" href="armonia/campo-armonico.html">
-        <h3>Campo Armónico</h3>
-        <p>Escribe acordes y jazz21 infiere grado y función en tiempo real. Detecta acordes no diatónicos.</p>
-        <span class="tag live">Interactivo</span>
-      </a>
-    </div>
-
-    <p class="section-label">Aprender Python</p>
-    <div class="card-grid">
       <a class="card" href="python/venv.html">
         <h3>Entorno y venv</h3>
         <p>Crear un entorno virtual e instalar jazz21 con pip.</p>
-        <span class="tag live">Disponible</span>
+        <span class="tag live">Interactivo</span>
       </a>
       <a class="card" href="python/importar.html">
-        <h3>Importar y usar módulos</h3>
+        <h3>Importar módulos</h3>
         <p><code>import jazz21</code> y leer resultados en el navegador.</p>
         <span class="tag live">Interactivo</span>
       </a>
@@ -63,7 +91,8 @@
       </a>
     </div>
 
-    <p class="section-label">Módulos jazz21</p>
+    <p class="section-label">API Python</p>
+    <p class="section-desc">Referencia de la librería para desarrolladores Python.</p>
     <div class="card-grid">
       <a class="card" href="guias/acordes/describe-chord.html">
         <h3>describe_chord</h3>
@@ -95,14 +124,22 @@
         <p>Lista de acordes para publicadores y SEO.</p>
         <span class="tag live">Interactivo</span>
       </a>
-      <a class="card" href="spike.html">
-        <h3>Spike Pyodide</h3>
-        <p>Diagnóstico técnico del runtime en el navegador.</p>
-        <span class="tag">Dev</span>
+    </div>
+
+    <p class="section-label">Estudios</p>
+    <p class="section-desc">Investigación musical con jazz21 y corpus de datos.</p>
+    <div class="card-grid">
+      <a class="card" href="#">
+        <h3>Sistema modal · George Russell</h3>
+        <p>El Lydian Chromatic Concept como marco analítico computacional.</p>
+        <span class="tag soon">En desarrollo</span>
       </a>
     </div>
   </main>
 
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
+  <script src="js/pyodide-playground.js"></script>
+  <script src="js/progresiones-widget.js"></script>
   <footer class="site-footer">
     jazz21 · capa práctica sobre <a href="https://pypi.org/project/music21/">music21</a>
   </footer>

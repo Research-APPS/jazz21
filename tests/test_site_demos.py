@@ -58,7 +58,7 @@ def test_site_demo_executes_without_error(site_demo: tuple[Path, str]) -> None:
 
 def test_importar_demo_output() -> None:
     out = _run_demo(_extract_code(SITE_ROOT / "python" / "importar.html"))
-    assert "0.1.0" in out
+    import jazz21 as _j21; assert _j21.__version__ in out
     assert "Cmaj7" in out
     assert "dict" in out.lower() or "Canonical" in out
 
