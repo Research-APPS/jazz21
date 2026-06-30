@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Función armónica · jazz21</title>
+  <link rel="stylesheet" href="../css/biblioteca.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">jazz21 <span>· biblioteca</span></div>
+    <nav class="nav-links"><a href="../index.html">Inicio</a></nav>
+  </header>
+
+  <main class="guia-main">
+    <a class="back-link" href="../index.html">← Biblioteca</a>
+
+    <h1>Función armónica</h1>
+    <p class="lead">
+      Papel estructural que desempeña un acorde dentro de un contexto tonal o modal.
+      La función no es una propiedad del acorde en sí, sino de su relación con el centro tonal activo.
+    </p>
+
+    <section class="teoria-def">
+      <h2>Definición jazz21</h2>
+      <p>
+        En jazz21 distinguimos tres funciones primarias heredadas de la teoría funcional riemanniana:
+      </p>
+      <ul>
+        <li><strong>Tónica (T)</strong> — reposo y resolución. El acorde "ha llegado".</li>
+        <li><strong>Subdominante (SD)</strong> — movimiento hacia afuera de la tónica, apertura.</li>
+        <li><strong>Dominante (D)</strong> — tensión que tiende a resolver hacia la tónica.</li>
+      </ul>
+      <p>
+        La función depende del contexto: el acorde Am es Tónica en C mayor (VI) pero
+        Tónica también en A menor (I), aunque con peso diferente.
+        En modos como Dórico o Lidio, la función no siempre puede determinarse
+        sin conocer la secuencia de acordes — jazz21 lo indica con
+        <em>confianza: alta / media / nula</em>.
+      </p>
+    </section>
+
+    <div class="python-tip">
+      <strong>Diferencia clave:</strong> función <em>≠</em> diatonicidad.
+      Un acorde puede ser diatónico sin función clara (Bm en C mayor en modo Lidio)
+      o tener función clara sin ser diatónico (E7 como V/VI en C mayor).
+    </div>
+
+    <div class="playground" data-playground>
+      <div class="pg-toolbar">
+        <button type="button" class="pg-run">Ejecutar</button>
+        <button type="button" class="pg-reset pg-secondary">Reiniciar</button>
+        <span class="pg-status"></span>
+      </div>
+      <textarea class="pg-editor">import jazz21
+
+# Triadas de C mayor con su función
+for t in jazz21.triadas_de("C"):
+    fn = t.get("funcion") or "—"
+    print(f"  {t['grado']:>4}  {t['simbolo']:<6}  {fn}")
+</textarea>
+      <p class="pg-output-label">Salida</p>
+      <pre class="pg-output"></pre>
+    </div>
+
+    <section class="teoria-context">
+      <h2>Contexto histórico</h2>
+      <p>
+        Hugo Riemann sistematizó en 1893 (<em>Vereinfachte Harmonielehre</em>) la reducción
+        de toda la armonía tonal a tres funciones: Tonika (T), Subdominante (S) y Dominante (D).
+        Walter Piston (<em>Harmony</em>, 1941) trasladó este marco al contexto académico anglosajón
+        con énfasis en la progresión y la voz. El estándar DCML (<em>DCML Harmony Annotation Standard</em>)
+        lo formaliza para corpus computacionales, que es la referencia directa de ChordIA y jazz21.
+      </p>
+      <p class="teoria-sources">
+        Fuentes: Riemann 1893 · Piston 1941 · DCML Harmony Annotation Standard
+      </p>
+    </section>
+
+    <nav class="guia-nav">
+      <a href="acorde-diatonico.html">Siguiente: Acorde diatónico →</a>
+    </nav>
+  </main>
+
+  <script src="../js/pyodide-playground.js"></script>
+</body>
+</html>

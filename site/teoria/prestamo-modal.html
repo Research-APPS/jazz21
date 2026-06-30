@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Préstamo modal · jazz21</title>
+  <link rel="stylesheet" href="../css/biblioteca.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">jazz21 <span>· biblioteca</span></div>
+    <nav class="nav-links"><a href="../index.html">Inicio</a></nav>
+  </header>
+
+  <main class="guia-main">
+    <a class="back-link" href="../index.html">← Biblioteca</a>
+
+    <h1>Préstamo modal</h1>
+    <p class="lead">
+      Uso de un acorde que no pertenece a la escala activa pero sí a otro modo
+      con la misma tónica. El acorde "llega prestado" del modo paralelo.
+    </p>
+
+    <section class="teoria-def">
+      <h2>Definición jazz21</h2>
+      <p>
+        Cuando un acorde no es diatónico en el modo activo, jazz21 comprueba si sus
+        pitch-classes están contenidos en cualquiera de los siete modos paralelos
+        (misma tónica, escala distinta). Si encaja, lo marcamos como préstamo del
+        modo de procedencia.
+      </p>
+      <p>
+        Ejemplos en C mayor (jónico):
+      </p>
+      <ul>
+        <li><strong>Bb</strong> — no diatónico en C mayor, pero sí en C Mixolidio y C Eólico</li>
+        <li><strong>Ab</strong> — préstamo de C Eólico o C Frigio (Ab·C·Eb)</li>
+        <li><strong>Gb</strong> — préstamo de C Locrio (contiene Gb, Bb, Db)</li>
+      </ul>
+      <p>
+        Un acorde puede ser préstamo de varios modos simultáneamente.
+        jazz21 devuelve todos los modos de procedencia en el campo <code>hints</code>.
+      </p>
+    </section>
+
+    <div class="python-tip">
+      <strong>Nota:</strong> préstamo modal <em>≠</em> modulación.
+      En un préstamo modal el centro tonal no cambia — solo se toma un acorde ajeno
+      de un modo paralelo sin abandonar la tonalidad.
+    </div>
+
+    <div class="playground" data-playground>
+      <div class="pg-toolbar">
+        <button type="button" class="pg-run">Ejecutar</button>
+        <button type="button" class="pg-reset pg-secondary">Reiniciar</button>
+        <span class="pg-status"></span>
+      </div>
+      <textarea class="pg-editor">import jazz21
+
+# Acordes no diatónicos en C mayor con su procedencia modal
+tonalidad = "C"
+prestamos = ["Bb", "Ab", "Eb", "Gb", "Fm"]
+
+for a in prestamos:
+    r = jazz21.analizar_en_tonalidad(tonalidad, a)
+    hints = r.get("hints") or []
+    procedencia = ", ".join(
+        f"{h['modo']} ({h['tonica']})" for h in hints if h.get("tipo") == "modal"
+    ) or "sin procedencia identificada"
+    print(f"  {a:<5}  ←  {procedencia}")
+</textarea>
+      <p class="pg-output-label">Salida</p>
+      <pre class="pg-output"></pre>
+    </div>
+
+    <section class="teoria-context">
+      <h2>Contexto histórico</h2>
+      <p>
+        El préstamo del modo paralelo (borrowing from the parallel mode) es una técnica
+        consolidada en armonía romántica y jazz. Dmitri Tymoczko lo analiza
+        en <em>A Geometry of Music</em> (2011) como parte del espacio de escalas paralelas,
+        donde modos con la misma tónica forman un vecindario geométrico. En el jazz
+        post-bop el préstamo modal es omnipresente: Bb en C mayor, Ab, Eb o Fm
+        aparecen con naturalidad en contextos jónicos sin que el oyente perciba
+        una modulación.
+      </p>
+      <p class="teoria-sources">
+        Fuentes: Tymoczko 2011 · A Geometry of Music · DCML Harmony Annotation Standard
+      </p>
+    </section>
+
+    <nav class="guia-nav">
+      <a href="acorde-diatonico.html">← Acorde diatónico</a>
+      <a href="grado-vs-funcion.html">Siguiente: Grado vs función →</a>
+    </nav>
+  </main>
+
+  <script src="../js/pyodide-playground.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Grado vs función · jazz21</title>
+  <link rel="stylesheet" href="../css/biblioteca.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">jazz21 <span>· biblioteca</span></div>
+    <nav class="nav-links"><a href="../index.html">Inicio</a></nav>
+  </header>
+
+  <main class="guia-main">
+    <a class="back-link" href="../index.html">← Biblioteca</a>
+
+    <h1>Grado vs función</h1>
+    <p class="lead">
+      Grado y función son dos formas distintas de describir un acorde dentro de una tonalidad.
+      Confundirlos lleva a análisis incorrectos.
+    </p>
+
+    <section class="teoria-def">
+      <h2>Grado armónico</h2>
+      <p>
+        El <strong>grado</strong> es la posición de la raíz del acorde en la escala,
+        expresada en número romano (I, II, bIII, #IV...).
+        Es una pregunta objetiva y computable: ¿cuántos semitonos hay desde la tónica
+        hasta la raíz del acorde?
+      </p>
+      <pre class="teoria-formula">grado = (root_pc − tonic_pc) mod 12  →  romano</pre>
+      <p>
+        El grado no depende del tipo de acorde ni de la secuencia: G, G7, G9, G13
+        son todos <strong>V</strong> en C mayor.
+      </p>
+
+      <h2>Función armónica</h2>
+      <p>
+        La <strong>función</strong> es el papel estructural del acorde en el discurso armónico:
+        Tónica, Subdominante o Dominante. Es una pregunta contextual:
+        el mismo acorde puede tener funciones distintas según qué viene antes y después.
+      </p>
+      <p>
+        En jazz21 asignamos función T/SD/D con <em>confianza alta</em> solo en los modos
+        jónico y eólico, donde hay tradición teórica sólida. En otros modos mostramos
+        únicamente el grado.
+      </p>
+
+      <h2>La separación importa</h2>
+      <p>
+        Un acorde puede ser diatónico (pertenece a la escala) sin tener función clara.
+        Y puede tener función clara sin ser diatónico: E7 no es diatónico en C mayor
+        (tiene G#), pero actúa inequívocamente como <strong>V/VI</strong>
+        (dominante secundaria de Am).
+      </p>
+    </section>
+
+    <div class="python-tip">
+      <strong>En jazz21:</strong> el resultado de <code>analizar_en_tonalidad</code>
+      separa explícitamente <code>grado</code>, <code>funcion</code>, <code>diatonico</code>
+      y <code>confianza</code> como campos independientes.
+    </div>
+
+    <div class="playground" data-playground>
+      <div class="pg-toolbar">
+        <button type="button" class="pg-run">Ejecutar</button>
+        <button type="button" class="pg-reset pg-secondary">Reiniciar</button>
+        <span class="pg-status"></span>
+      </div>
+      <textarea class="pg-editor">import jazz21
+
+casos = [
+    ("C",  "G7"),   # diatónico, grado V, función Dominante
+    ("C",  "E7"),   # no diatónico, función V/VI (dom. secundaria)
+    ("C",  "Bm"),   # no diatónico, grado VII pero F# fuera
+    ("C",  "Dm"),   # diatónico, grado II, función Subdominante
+]
+
+print(f"{'Símbolo':<6}  {'Diató?':<8}  {'Grado':<6}  {'Función':<20}  {'Confianza'}")
+print("-" * 60)
+for ton, sym in casos:
+    r = jazz21.analizar_en_tonalidad(ton, sym)
+    dia = "✓" if r["diatonico"] else "✗"
+    grado = r.get("grado") or "—"
+    fn = r.get("funcion") or "—"
+    conf = r.get("confianza") or "—"
+    print(f"{sym:<6}  {dia:<8}  {grado:<6}  {fn:<20}  {conf}")
+</textarea>
+      <p class="pg-output-label">Salida</p>
+      <pre class="pg-output"></pre>
+    </div>
+
+    <section class="teoria-context">
+      <h2>Contexto histórico</h2>
+      <p>
+        La distinción entre grado y función tiene raíces en el debate entre el análisis
+        de escala-grado (Stufentheorie, Rameau/Weber) y la teoría funcional (Funktionstheorie, Riemann).
+        El primero etiqueta acordes por su posición en la escala; el segundo los clasifica
+        por su comportamiento en el discurso armónico. El estándar DCML usa ambas capas:
+        numeral romano para el grado y anotaciones adicionales para la función y la calidad.
+        jazz21 hereda esta separación para ser más preciso y evitar afirmaciones inexactas
+        — como llamar "Dominante" a un acorde solo porque está en el VII grado.
+      </p>
+      <p class="teoria-sources">
+        Fuentes: Riemann 1893 · Piston 1941 · DCML Harmony Annotation Standard
+      </p>
+    </section>
+
+    <nav class="guia-nav">
+      <a href="prestamo-modal.html">← Préstamo modal</a>
+      <a href="funcion-armonica.html">Función armónica →</a>
+    </nav>
+  </main>
+
+  <script src="../js/pyodide-playground.js"></script>
+</body>
+</html>

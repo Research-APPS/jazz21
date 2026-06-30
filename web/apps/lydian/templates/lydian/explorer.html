@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lydian Explorer — jazz21</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #c8a96e;
+      --gold-dim: #6e5a30;
+      --green: #6ec880;
+      --blue: #6e9ec8;
+      --bg: #0d0d0d;
+      --bg1: #111;
+      --bg2: #1a1a1a;
+      --border: #222;
+      --text: #e0e0e0;
+      --muted: #555;
+      --dimmer: #333;
+    }
+
+    body {
+      font-family: 'Courier New', monospace;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    /* ── Header ── */
+    header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+    h1 { font-size: 1.1rem; color: #888; letter-spacing: 0.1em; }
+    h1 span { color: #fff; }
+
+    .header-actions { display: flex; gap: 0.75rem; align-items: center; }
+
+    .btn-icon {
+      background: var(--bg1);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      width: 32px; height: 32px;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.15s;
+    }
+    .btn-icon:hover { border-color: #555; color: #fff; }
+    .btn-icon.active { background: var(--gold); color: #000; border-color: var(--gold); }
+
+    /* ── Tonic selector ── */
+    .selector {
+      display: flex; gap: 0.5rem; flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .selector button {
+      background: var(--bg1); border: 1px solid var(--border);
+      color: #aaa; padding: 0.4rem 0.9rem;
+      border-radius: 3px; cursor: pointer;
+      font-family: inherit; font-size: 0.9rem;
+      transition: all 0.15s;
+    }
+    .selector button:hover { border-color: #555; color: #fff; }
+    .selector button.active { background: #fff; color: #000; border-color: #fff; }
+
+    /* ── Section labels ── */
+    .section-label {
+      font-size: 0.65rem; color: var(--muted);
+      letter-spacing: 0.15em; text-transform: uppercase;
+      margin-bottom: 0.9rem;
+    }
+
+    /* ── Fifth Stack ── */
+    .fifth-stack {
+      display: flex; gap: 0;
+      margin-bottom: 2.5rem;
+      align-items: flex-end;
+    }
+
+    .region {
+      display: flex; flex-direction: column; align-items: center; gap: 0.45rem;
+      padding: 0 0.75rem;
+      border-left: 1px solid #1e1e1e;
+      transition: background 0.1s;
+    }
+    .region:first-child { border-left: none; }
+
+    .region-note {
+      font-size: 1.6rem; font-weight: bold;
+      transition: color 0.2s;
+      cursor: pointer;
+      user-select: none;
+      padding: 0.1rem 0.2rem;
+      border-radius: 3px;
+    }
+    .region-note:hover { background: #222; }
+    .region-note:active { transform: scale(0.94); }
+
+    .region-bar {
+      width: 28px; background: var(--dimmer);
+      border-radius: 2px;
+      transition: height 0.35s ease, background 0.3s;
+      cursor: pointer;
+    }
+    .region-pos      { font-size: 0.62rem; color: #444; }
+    .region-stability{ font-size: 0.62rem; color: #444; }
+
+    .region.stable .region-note      { color: #fff; }
+    .region.leading_tone .region-note { color: #3a3a3a; }
+    .region.stable .region-bar        { background: var(--gold); }
+    .region.leading_tone .region-bar  { background: #222; }
+
+    /* pulse on play */
+    @keyframes pulse { 0%{opacity:1} 50%{opacity:0.4} 100%{opacity:1} }
+    .playing .region-note { animation: pulse 0.6s ease; }
+
+    /* ── Play stack button ── */
+    .play-stack-row { margin-bottom: 2.5rem; }
+    .btn-play {
+      background: transparent; border: 1px solid var(--gold-dim);
+      color: var(--gold); padding: 0.4rem 1rem;
+      border-radius: 3px; cursor: pointer;
+      font-family: inherit; font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      transition: all 0.15s;
+    }
+    .btn-play:hover { background: var(--gold); color: #000; border-color: var(--gold); }
+    .btn-play:disabled { opacity: 0.3; cursor: default; }
+
+    /* ── Pedal Centers ── */
+    .pedal-centers { display: flex; gap: 1rem; margin-bottom: 2.5rem; }
+    .pedal-card {
+      background: var(--bg1); border: 1px solid var(--border);
+      border-radius: 4px; padding: 0.75rem 1.25rem;
+      cursor: pointer; transition: border-color 0.15s;
+    }
+    .pedal-card:hover { border-color: var(--gold-dim); }
+    .pedal-card .note { font-size: 1.4rem; color: var(--gold); }
+    .pedal-card .role { font-size: 0.68rem; color: var(--muted); margin-top: 0.2rem; }
+    .pedal-card .chord-label {
+      font-size: 0.62rem; color: #383828; margin-top: 0.4rem;
+      transition: color 0.2s;
+    }
+    .pedal-card:hover .chord-label { color: var(--gold-dim); }
+
+    /* ── Distance tool ── */
+    .distance-tool {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .distance-tool select {
+      background: var(--bg1); border: 1px solid var(--border);
+      color: var(--text); padding: 0.4rem 0.6rem;
+      font-family: inherit; font-size: 1rem; border-radius: 3px;
+    }
+    .distance-result { font-size: 1rem; color: var(--gold); min-width: 18ch; }
+
+    /* ── Modal table ── */
+    table { border-collapse: collapse; font-size: 0.8rem; width: 100%; max-width: 700px; margin-bottom: 3rem; }
+    th {
+      text-align: left; color: #444; padding: 0.3rem 1rem 0.6rem 0;
+      font-weight: normal; letter-spacing: 0.1em;
+    }
+    td { padding: 0.4rem 1rem 0.4rem 0; border-top: 1px solid #1a1a1a; color: #888; }
+    td:first-child { color: var(--text); }
+    td.mode-name { color: var(--gold); }
+
+    .badge {
+      display: inline-block; padding: 0.1rem 0.4rem;
+      border-radius: 2px; font-size: 0.62rem;
+      background: var(--bg2); color: var(--muted);
+    }
+    .badge.primary       { background: #1e1a10; color: var(--gold); }
+    .badge.strong        { background: #0e1a10; color: var(--green); }
+    .badge.weak          { background: var(--bg1); color: #444; }
+    .badge.primary_minor { background: #10111e; color: var(--blue); }
+
+    /* ── Guide panel ── */
+    .guide-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 100;
+      display: none;
+    }
+    .guide-overlay.open { display: block; }
+
+    .guide-panel {
+      position: fixed; top: 0; right: 0; bottom: 0;
+      width: min(480px, 100vw);
+      background: #0f0f0f;
+      border-left: 1px solid var(--border);
+      overflow-y: auto;
+      padding: 2rem;
+      transform: translateX(100%);
+      transition: transform 0.25s ease;
+      z-index: 101;
+    }
+    .guide-panel.open { transform: translateX(0); }
+
+    .guide-close {
+      position: absolute; top: 1rem; right: 1rem;
+      background: none; border: none; color: var(--muted);
+      font-size: 1.2rem; cursor: pointer;
+    }
+    .guide-close:hover { color: #fff; }
+
+    .guide-panel h2 {
+      font-size: 0.85rem; color: #fff;
+      letter-spacing: 0.1em; margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem; border-bottom: 1px solid var(--border);
+    }
+    .guide-panel h3 {
+      font-size: 0.72rem; color: var(--gold);
+      letter-spacing: 0.12em; text-transform: uppercase;
+      margin: 1.5rem 0 0.6rem;
+    }
+    .guide-panel p, .guide-panel li {
+      font-size: 0.78rem; color: #888; line-height: 1.7;
+    }
+    .guide-panel ul { padding-left: 1.2rem; margin-top: 0.4rem; }
+    .guide-panel li { margin-bottom: 0.3rem; }
+    .guide-panel code {
+      background: var(--bg2); color: var(--gold);
+      padding: 0.1rem 0.3rem; border-radius: 2px; font-size: 0.75rem;
+    }
+    .guide-stack-example {
+      display: flex; gap: 0.4rem; flex-wrap: wrap;
+      margin: 0.6rem 0;
+    }
+    .guide-stack-example .gn {
+      background: var(--bg2); border: 1px solid var(--border);
+      color: #888; padding: 0.2rem 0.5rem;
+      border-radius: 2px; font-size: 0.75rem;
+    }
+    .guide-stack-example .gn.s { color: #fff; border-color: var(--gold-dim); }
+    .guide-stack-example .gn.lt { color: #333; }
+
+    .guide-tip {
+      background: #111a0e; border-left: 2px solid var(--green);
+      padding: 0.6rem 0.9rem; margin: 0.8rem 0;
+      border-radius: 0 3px 3px 0;
+    }
+    .guide-tip p { color: #6ec88099; font-size: 0.75rem; }
+    .guide-tip strong { color: var(--green); }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>jazz21 / <span>Lydian Explorer</span></h1>
+  <div class="header-actions">
+    <button class="btn-icon" id="btn-guide" title="Guía">?</button>
+  </div>
+</header>
+
+<!-- Selector de tónica -->
+<div class="selector" id="selector">
+  {% for note in notes %}
+  <button data-note="{{ note }}" {% if note == tonic %}class="active"{% endif %}>{{ note }}</button>
+  {% endfor %}
+</div>
+
+<!-- Fifth Stack -->
+<div class="section-label">Fifth Stack — gravedad tonal · clic para escuchar</div>
+<div class="fifth-stack" id="fifth-stack"></div>
+
+<div class="play-stack-row">
+  <button class="btn-play" id="btn-play-stack">▶ Escuchar pila ascendente</button>
+</div>
+
+<!-- Pedal centers -->
+<div class="section-label">Centros de pedal · clic para escuchar acorde</div>
+<div class="pedal-centers" id="pedal-centers"></div>
+
+<!-- Distance tool -->
+<div class="section-label">Distancia en quintas</div>
+<div class="distance-tool">
+  <select id="dist-a"></select>
+  <span style="color:#333">→</span>
+  <select id="dist-b"></select>
+  <div class="distance-result" id="dist-result">—</div>
+</div>
+
+<!-- Modal table -->
+<div class="section-label">Modos disponibles</div>
+<table id="modal-table">
+  <thead>
+    <tr><th>#</th><th>Nota</th><th>Modo</th><th>Función</th><th>Acordes cíclicos</th></tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<!-- Guide overlay + panel -->
+<div class="guide-overlay" id="guide-overlay"></div>
+<div class="guide-panel" id="guide-panel">
+  <button class="guide-close" id="guide-close">✕</button>
+  <h2>GUÍA — Lydian Explorer</h2>
+
+  <h3>Qué es esto</h3>
+  <p>Una implementación del <strong style="color:#fff">Lydian System</strong> de George Russell (1953) adaptada para composición desde el mástil. La idea central: el Lidio se puede construir por quintas sucesivas, y eso lo convierte en el centro de gravedad tonal más estable.</p>
+
+  <h3>La pila de quintas</h3>
+  <p>Cada nota del sistema está ordenada por quintas ascendentes desde la tónica. Cuanto más a la izquierda, más estable:</p>
+  <div class="guide-stack-example">
+    <div class="gn s">F·1</div>
+    <div class="gn s">C·2</div>
+    <div class="gn s">G·3</div>
+    <div class="gn s">D·4</div>
+    <div class="gn s">A·5</div>
+    <div class="gn lt">E·6</div>
+    <div class="gn lt">B·7</div>
+  </div>
+  <p>Las posiciones 6 y 7 son <em>leading tones</em> — crean tensión y tiran hacia el centro. No puedes pedal aquí de forma estable.</p>
+
+  <h3>Cómo escuchar</h3>
+  <ul>
+    <li><strong style="color:#fff">Clic en una nota</strong> de la pila → suena esa nota</li>
+    <li><strong style="color:#fff">▶ Pila ascendente</strong> → escuchas las 7 notas en orden</li>
+    <li><strong style="color:#fff">Clic en un centro de pedal</strong> → suena el acorde característico del modo (sus2, quartal o So What)</li>
+  </ul>
+
+  <h3>Los tres centros de pedal</h3>
+  <p>Lidio, Mixolidio y Dórico son los tres centros principales. Puedes sustituir el pedal entre ellos sin salir del sistema — el oído no lo percibe como modulación, sino como cambio de color.</p>
+  <div class="guide-tip">
+    <p><strong>Ejemplo</strong>: en F Lidio, un solo improvisado sobre pedal D (Dórico) funciona también sobre F (Lidio) o G (Mixolidio). Zappa usaba este truco constantemente en <em>Joe's Garage</em>.</p>
+  </div>
+
+  <h3>Distancia en quintas</h3>
+  <p>Mide la afinidad entre dos notas dentro de la red. Cuanto más pequeño el número, más próximas tonalmente:</p>
+  <ul>
+    <li><code>1</code> = quinta directa — movimiento suave</li>
+    <li><code>2–3</code> = relación cercana</li>
+    <li><code>6</code> = tritono — máxima tensión</li>
+  </ul>
+
+  <h3>Modos disponibles</h3>
+  <ul>
+    <li><code class="badge primary">primary</code> Lidio — la tónica del sistema</li>
+    <li><code class="badge strong">strong</code> Mixolidio — tonicizador principal</li>
+    <li><code class="badge primary_minor">primary_minor</code> Dórico — el menor del sistema</li>
+    <li><code class="badge weak">weak</code> Jónico y Eólico — menos estables, evita como pedal</li>
+  </ul>
+
+  <h3>Acordes cíclicos</h3>
+  <p>Son acordes sin tercera — su ambigüedad tonal permite que el centro pedal tome el protagonismo:</p>
+  <ul>
+    <li><code>sus2</code> — raíz + 2ª mayor + 5ª (Fsus2 = F G C)</li>
+    <li><code>quartal</code> — dos cuartas apiladas (A D G)</li>
+    <li><code>so_what</code> — 5 notas de la pila, acorde de Bill Evans en <em>Kind of Blue</em></li>
+  </ul>
+
+  <h3>Conexión con tu mástil</h3>
+  <div class="guide-tip">
+    <p><strong>Intuición clave:</strong> C Lidio tiene la armadura de G Mayor. Porque C Lidio = C D E F# G A B = las mismas notas que G Mayor. La diferencia es solo el centro: C en vez de G.</p>
+  </div>
+  <p>Desde el mástil, piensa así: elige una zona (pedal), pon el bajo ahí, y explora las otras dos zonas encima. No necesitas pensar en armaduras.</p>
+
+  <h3>API JSON</h3>
+  <p>Accede a los datos en bruto para conectar con otros proyectos:</p>
+  <p><code>/lydian/api/system/?tonic=F</code></p>
+</div>
+
+<script>
+// ── Audio setup (Tone.js) ──────────────────────────────────────────────────
+const synth = new Tone.PolySynth(Tone.Synth, {
+  oscillator: { type: "triangle" },
+  envelope: { attack: 0.02, decay: 0.3, sustain: 0.4, release: 1.2 },
+  volume: -8,
+}).toDestination();
+
+const reverb = new Tone.Reverb({ decay: 2.5, wet: 0.25 }).toDestination();
+synth.connect(reverb);
+
+const NOTE_PC = {C:0,"C#":1,Db:1,D:2,"D#":3,Eb:3,E:4,F:5,"F#":6,Gb:6,
+                 G:7,"G#":8,Ab:8,A:9,"A#":10,Bb:10,B:11};
+
+function noteToTone(name, octave = 4) {
+  // Ajusta octava para que suene en rango cómodo (C3–C5)
+  const pc = NOTE_PC[name];
+  if (pc === undefined) return name + octave;
+  return name + octave;
+}
+
+function playNote(name, duration = "4n", time = Tone.now()) {
+  synth.triggerAttackRelease(noteToTone(name, 4), duration, time);
+}
+
+function playChord(notes, duration = "2n") {
+  const tones = notes.map(n => noteToTone(n, 4));
+  synth.triggerAttackRelease(tones, duration, Tone.now());
+}
+
+async function playStack(notes) {
+  await Tone.start();
+  const btn = document.getElementById("btn-play-stack");
+  btn.disabled = true;
+  const now = Tone.now();
+  notes.forEach((note, i) => {
+    synth.triggerAttackRelease(noteToTone(note, 4), "4n", now + i * 0.35);
+    // highlight
+    setTimeout(() => {
+      document.querySelectorAll(".region")[i]?.classList.add("playing");
+      setTimeout(() => document.querySelectorAll(".region")[i]?.classList.remove("playing"), 400);
+    }, i * 350);
+  });
+  setTimeout(() => { btn.disabled = false; }, notes.length * 350 + 600);
+}
+
+// ── Data & state ───────────────────────────────────────────────────────────
+const NOTES = ["C","Db","D","Eb","E","F","F#","G","Ab","A","Bb","B"];
+let currentTonic = "{{ tonic }}";
+let systemData = null;
+
+// Distance selects
+const distA = document.getElementById("dist-a");
+const distB = document.getElementById("dist-b");
+NOTES.forEach(n => {
+  distA.innerHTML += `<option value="${n}">${n}</option>`;
+  distB.innerHTML += `<option value="${n}">${n}</option>`;
+});
+distB.value = "G";
+
+function distInFifths(a, b) {
+  const diff = ((NOTE_PC[b] - NOTE_PC[a]) % 12 + 12) % 12;
+  return (diff * 7) % 12;
+}
+
+function updateDistance() {
+  const a = distA.value, b = distB.value;
+  const d = distInFifths(a, b);
+  const labels = {0:"misma nota",1:"1 quinta — muy próximas",2:"2 quintas",
+                  3:"3 quintas",4:"4 quintas",5:"5 quintas",
+                  6:"6 quintas — tritono ⚡"};
+  document.getElementById("dist-result").textContent = labels[d] ?? `${d} quintas`;
+}
+distA.addEventListener("change", updateDistance);
+distB.addEventListener("change", updateDistance);
+updateDistance();
+
+// ── Render ─────────────────────────────────────────────────────────────────
+function renderStack(regions) {
+  const el = document.getElementById("fifth-stack");
+  el.innerHTML = "";
+  const maxH = 80;
+  regions.forEach(r => {
+    const h = Math.round(r.stability * maxH);
+    const div = document.createElement("div");
+    div.className = `region ${r.region}`;
+    div.title = `posición ${r.position} · estabilidad ${(r.stability*100).toFixed(0)}%`;
+    div.innerHTML = `
+      <div class="region-note">${r.note}</div>
+      <div class="region-bar" style="height:${Math.max(h,4)}px"></div>
+      <div class="region-pos">#${r.position}</div>
+      <div class="region-stability">${(r.stability*100).toFixed(0)}%</div>`;
+    div.querySelector(".region-note").addEventListener("click", async () => {
+      await Tone.start();
+      playNote(r.note);
+      div.classList.add("playing");
+      setTimeout(() => div.classList.remove("playing"), 600);
+    });
+    el.appendChild(div);
+  });
+}
+
+function renderPedal(centers, modalRank) {
+  const el = document.getElementById("pedal-centers");
+  el.innerHTML = "";
+  const roles = {Lydian:"tónica lidia", Mixolydian:"tonicizador", Dorian:"menor relativo"};
+  centers.forEach(c => {
+    const mode = modalRank.find(m => m.mode === c.mode);
+    const chordLabel = mode?.cyclic_chords?.join(" · ") || "";
+    const div = document.createElement("div");
+    div.className = "pedal-card";
+    div.title = `Escuchar acorde de ${c.mode}`;
+    div.innerHTML = `
+      <div class="note">${c.root}</div>
+      <div class="role">${c.mode} · ${c.roman} · ${roles[c.mode]||""}</div>
+      <div class="chord-label">${chordLabel}</div>`;
+    div.addEventListener("click", async () => {
+      await Tone.start();
+      if (mode?.cyclic_chords?.length) {
+        const type = mode.cyclic_chords[0];
+        const root = c.root;
+        const chords = buildCyclicChord(root, type, systemData.fifth_stack);
+        playChord(chords, "2n");
+      } else {
+        playNote(c.root, "2n");
+      }
+      div.style.borderColor = "var(--gold)";
+      setTimeout(() => div.style.borderColor = "", 700);
+    });
+    el.appendChild(div);
+  });
+}
+
+function buildCyclicChord(root, type, stack) {
+  const pc = n => NOTE_PC[n] ?? 0;
+  const name = pc => {
+    const sharp = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+    return sharp[((pc % 12) + 12) % 12];
+  };
+  const r = pc(root);
+  if (type === "sus2")    return [root, name(r+2), name(r+7)];
+  if (type === "sus4")    return [root, name(r+5), name(r+7)];
+  if (type === "quartal") return [name(r-5), root, name(r+5)].map(n=>name(pc(n)));
+  if (type === "so_what") {
+    const idx = stack.indexOf(root);
+    return stack.slice(idx, idx+5);
+  }
+  return [root];
+}
+
+function renderModal(modes) {
+  const tbody = document.querySelector("#modal-table tbody");
+  tbody.innerHTML = "";
+  modes.forEach(m => {
+    const cyclic = m.cyclic_chords.join(", ") || "—";
+    tbody.innerHTML += `
+      <tr>
+        <td>${m.position}</td>
+        <td>${m.root}</td>
+        <td class="mode-name">${m.mode}</td>
+        <td><span class="badge ${m.rank}">${m.rank}</span></td>
+        <td>${cyclic}</td>
+      </tr>`;
+  });
+}
+
+// ── Load system ────────────────────────────────────────────────────────────
+async function loadSystem(tonic) {
+  const res = await fetch(`/lydian/api/system/?tonic=${encodeURIComponent(tonic)}`);
+  systemData = await res.json();
+  renderStack(systemData.regions);
+  renderPedal(systemData.pedal_centers, systemData.modal_rank);
+  renderModal(systemData.modal_rank);
+  distA.value = tonic;
+  updateDistance();
+}
+
+// ── Play stack button ──────────────────────────────────────────────────────
+document.getElementById("btn-play-stack").addEventListener("click", () => {
+  if (systemData) playStack(systemData.fifth_stack);
+});
+
+// ── Tonic selector ─────────────────────────────────────────────────────────
+document.getElementById("selector").addEventListener("click", e => {
+  const btn = e.target.closest("button[data-note]");
+  if (!btn) return;
+  document.querySelectorAll(".selector button").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  currentTonic = btn.dataset.note;
+  history.replaceState(null, "", `?tonic=${currentTonic}`);
+  loadSystem(currentTonic);
+});
+
+// ── Guide panel ────────────────────────────────────────────────────────────
+const guideBtn     = document.getElementById("btn-guide");
+const guidePanel   = document.getElementById("guide-panel");
+const guideOverlay = document.getElementById("guide-overlay");
+const guideClose   = document.getElementById("guide-close");
+
+function openGuide()  { guidePanel.classList.add("open"); guideOverlay.classList.add("open"); guideBtn.classList.add("active"); }
+function closeGuide() { guidePanel.classList.remove("open"); guideOverlay.classList.remove("open"); guideBtn.classList.remove("active"); }
+
+guideBtn.addEventListener("click", () => guidePanel.classList.contains("open") ? closeGuide() : openGuide());
+guideClose.addEventListener("click", closeGuide);
+guideOverlay.addEventListener("click", closeGuide);
+
+// ── Init ───────────────────────────────────────────────────────────────────
+loadSystem(currentTonic);
+</script>
+</body>
+</html>

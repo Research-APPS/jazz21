@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Cuatriadas · Armonía · jazz21</title>
+  <link rel="stylesheet" href="../css/biblioteca.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">jazz21 <span>· armonía</span></div>
+    <nav class="nav-links"><a href="../index.html">Inicio</a></nav>
+  </header>
+
+  <main class="guia-main">
+    <a class="back-link" href="triadas.html">← Triadas</a>
+    <h1>Cuatriadas</h1>
+    <p class="lead">
+      Añadir una cuarta nota — la séptima — transforma una triada en una cuatriada.
+      El resultado es un acorde con más color, más tensión interna,
+      y mucho más vocabulario para moverse por el campo armónico.
+    </p>
+
+    <!-- ——— Sección 1: tabla ——— -->
+    <div class="guia-section">
+      <h2>Las cuatriadas de la escala natural de C</h2>
+      <p>
+        Apilamos una tercera más sobre cada triada diatónica.
+        La séptima resultante define el tipo de acorde — maj7, m7, dom7 o m7b5 —
+        y matiza la función que ya tenía la triada.
+      </p>
+
+      <table class="armonia-table">
+        <thead>
+          <tr>
+            <th>Grado</th>
+            <th>Acorde</th>
+            <th>Tipo</th>
+            <th>Función</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="grado-badge">I</span></td>
+            <td><strong>Cmaj7</strong></td>
+            <td>maj7</td>
+            <td class="fn-tonica">Tónica</td>
+          </tr>
+          <tr>
+            <td><span class="grado-badge">II</span></td>
+            <td><strong>Dm7</strong></td>
+            <td>m7</td>
+            <td class="fn-subdominante">Subdominante</td>
+          </tr>
+          <tr>
+            <td><span class="grado-badge">III</span></td>
+            <td><strong>Em7</strong></td>
+            <td>m7</td>
+            <td class="fn-tonica">Tónica</td>
+          </tr>
+          <tr>
+            <td><span class="grado-badge">IV</span></td>
+            <td><strong>Fmaj7</strong></td>
+            <td>maj7</td>
+            <td class="fn-subdominante">Subdominante</td>
+          </tr>
+          <tr>
+            <td><span class="grado-badge">V</span></td>
+            <td><strong>G7</strong></td>
+            <td>dom7</td>
+            <td class="fn-dominante">Dominante</td>
+          </tr>
+          <tr>
+            <td><span class="grado-badge">VI</span></td>
+            <td><strong>Am7</strong></td>
+            <td>m7</td>
+            <td class="fn-tonica">Tónica</td>
+          </tr>
+          <tr>
+            <td><span class="grado-badge">VII</span></td>
+            <td><strong>Bm7b5</strong></td>
+            <td>m7b5</td>
+            <td class="fn-dominante">Dominante</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ——— Sección 2: G7 ——— -->
+    <div class="guia-section">
+      <h2>G7 → C: el motor de la armonía tonal</h2>
+      <p>
+        El V7 es el acorde dominante por excelencia.
+        En G7 conviven dos fuerzas opuestas: la tercera (Si) quiere subir a Do,
+        y la séptima (Fa) quiere bajar a Mi.
+        Esa doble atracción sobre la tónica es lo que hace de la cadencia
+        <strong>G7 → C</strong> el gesto más poderoso del sistema tonal.
+      </p>
+      <p>
+        En jazz, este movimiento se decora, sustituye y evita constantemente.
+        Pero entenderlo es el punto de partida para saber qué se está subvirtiendo.
+      </p>
+    </div>
+
+    <!-- ——— Apunte clásico ——— -->
+    <div class="clasica-aside">
+      <span class="aside-label">♩ Apunte · Armonía clásica</span>
+      <p>
+        La séptima disminuida (Bº7) es la cuatriada dominante más tensa del sistema tonal clásico:
+        cuatro notas simétricas separadas por terceras menores, todas igualmente inestables.
+        En el romanticismo se convirtió en el comodín del drama —
+        aparece en Beethoven, Schubert y Wagner casi como puntuación emocional.
+        En jazz se domesticó: Bm7b5 (semidisminuido) sustituye a Bº7
+        con el mismo impulso pero menos aspereza.
+      </p>
+    </div>
+
+    <!-- ——— Ejercicio 1 ——— -->
+    <div class="guia-section">
+      <h2>Ejercicio · Cuatriadas con jazz21</h2>
+      <p>
+        Cada cuatriada diatónica tiene su propio conjunto de intervalos.
+        El tipo de séptima —mayor, menor, disminuida— es lo que distingue
+        un Cmaj7 de un Dm7 aunque ambos sean "de tónica / subdominante".
+      </p>
+    </div>
+
+    <div class="playground" data-playground>
+      <div class="pg-toolbar">
+        <button type="button" class="pg-run">Ejecutar</button>
+        <button type="button" class="pg-reset pg-secondary">Reiniciar</button>
+        <span class="pg-status"></span>
+      </div>
+      <textarea class="pg-editor">import jazz21                                          # cargamos la librería
+
+for acorde in jazz21.cuatriadas_de("C"):               # jazz21 infiere las cuatriadas de C mayor
+    notas      = ", ".join(acorde["notas"])             # notas del acorde
+    intervalos = acorde["intervalos"]                   # intervalos del acorde
+    print(f'{acorde["simbolo"]:<8} {notas:<22} {intervalos}')  # mostramos todo en una línea</textarea>
+      <p class="pg-output-label">Salida</p>
+      <pre class="pg-output"></pre>
+    </div>
+
+    <!-- ——— Ejercicio 2 ——— -->
+    <div class="guia-section">
+      <h2>Ejercicio · Notas compartidas entre cuatriadas</h2>
+      <p>
+        Una nota puede pertenecer a varios acordes distintos.
+        Eso es exactamente lo que permite las sustituciones armónicas:
+        si Am7 y Cmaj7 comparten tres notas, uno puede sustituir al otro
+        sin que el oído lo sienta como un salto.
+      </p>
+    </div>
+
+    <div class="playground" data-playground>
+      <div class="pg-toolbar">
+        <button type="button" class="pg-run">Ejecutar</button>
+        <button type="button" class="pg-reset pg-secondary">Reiniciar</button>
+        <span class="pg-status"></span>
+      </div>
+      <textarea class="pg-editor">import jazz21                                              # cargamos la librería
+
+cuatriadas = jazz21.cuatriadas_de("C")                     # jazz21 infiere todas las cuatriadas de C
+
+print("Notas de cada cuatriada:\n")                        # encabezado de la tabla
+for acorde in cuatriadas:                                  # recorremos cada acorde
+    notas = acorde["notas"]                                # lista de notas inferidas
+    print(f'  {acorde["simbolo"]:<8} {notas}')            # mostramos acorde y notas
+
+# comparamos dos acordes de función Tónica para ver cuántas notas comparten
+tonicas = [a for a in cuatriadas if a["funcion"] == "Tónica"]  # filtramos por función
+I  = tonicas[0]                                            # grado I  (e.g. Cmaj7)
+VI = tonicas[2]                                            # grado VI (e.g. Am7)
+comunes = sorted(set(I["notas"]) & set(VI["notas"]))       # intersección de notas
+print(f'\nNotas comunes {I["simbolo"]} / {VI["simbolo"]}: {comunes}')  # resultado</textarea>
+      <p class="pg-output-label">Salida</p>
+      <pre class="pg-output"></pre>
+    </div>
+
+    <nav class="guia-nav">
+      <a href="triadas.html">← Triadas</a>
+      <a href="campo-armonico.html">Siguiente: Campo Armónico →</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">jazz21 · armonía</footer>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+  <script src="../js/pyodide-playground.js"></script>
+  <script src="../js/cm-python.js"></script>
+</body>
+</html>

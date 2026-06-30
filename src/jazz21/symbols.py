@@ -224,7 +224,7 @@ def normalize_chord_symbol(symbol: str) -> dict[str, Any] | None:
         else:
             ps = list(cs.pitches)
 
-        out["pitches"] = [p.name for p in ps]
+        out["pitches"] = [p.name.replace("-", "b") for p in ps]
 
         if root_p is not None:
             rpc = root_p.pitchClass

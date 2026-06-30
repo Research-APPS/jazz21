@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Acorde diatónico · jazz21</title>
+  <link rel="stylesheet" href="../css/biblioteca.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">jazz21 <span>· biblioteca</span></div>
+    <nav class="nav-links"><a href="../index.html">Inicio</a></nav>
+  </header>
+
+  <main class="guia-main">
+    <a class="back-link" href="../index.html">← Biblioteca</a>
+
+    <h1>Acorde diatónico</h1>
+    <p class="lead">
+      Acorde cuyos pitch-classes pertenecen íntegramente a la escala activa.
+      jazz21 lo comprueba por subconjunto de pitch-classes — no solo la raíz.
+    </p>
+
+    <section class="teoria-def">
+      <h2>Definición jazz21</h2>
+      <p>
+        Un acorde es diatónico si y solo si el conjunto de sus pitch-classes está
+        contenido en el conjunto de pitch-classes de la escala activa:
+      </p>
+      <pre class="teoria-formula">chord_pcs ⊆ scale_pcs</pre>
+      <p>
+        Esto es más estricto que comprobar solo la raíz. En C mayor (C·D·E·F·G·A·B),
+        Bm tiene raíz B (diatónica) pero su quinta F# (pc 6) no está en la escala.
+        Por tanto Bm <em>no es diatónico</em> en C mayor.
+      </p>
+      <p>
+        Esta es la diferencia entre el enfoque CHORDIA (pitch-class) y el análisis
+        romano clásico que a veces solo comprueba la raíz.
+      </p>
+    </section>
+
+    <div class="python-tip">
+      <strong>En jazz21:</strong> <code>analizar_en_tonalidad</code> devuelve
+      <code>diatonico: True/False</code> independientemente de la función.
+      Diatonicidad y función son preguntas separadas.
+    </div>
+
+    <div class="playground" data-playground>
+      <div class="pg-toolbar">
+        <button type="button" class="pg-run">Ejecutar</button>
+        <button type="button" class="pg-reset pg-secondary">Reiniciar</button>
+        <span class="pg-status"></span>
+      </div>
+      <textarea class="pg-editor">import jazz21
+
+tonalidad = "C"
+acordes = ["C", "Dm", "Em", "Bm", "F#m", "E7"]
+
+for a in acordes:
+    r = jazz21.analizar_en_tonalidad(tonalidad, a)
+    dia = "✓ diatónico" if r["diatonico"] else "✗ no diatónico"
+    notas = "·".join(r["notas"])
+    print(f"  {a:<6} {dia:<16}  {notas}")
+</textarea>
+      <p class="pg-output-label">Salida</p>
+      <pre class="pg-output"></pre>
+    </div>
+
+    <section class="teoria-context">
+      <h2>Contexto histórico</h2>
+      <p>
+        El concepto de diatonicidad como pertenencia a una escala tiene raíces en la teoría
+        tonal clásica (Rameau, Piston) y se formaliza computacionalmente en el estándar DCML,
+        que usa representación de pitch-classes para comparar conjuntos armónicos.
+        En jazz21 adoptamos este enfoque porque es robusto ante extensiones del acorde:
+        G13 y G7 comparten la raíz G y son tratados igual si sus notas caben en la escala.
+      </p>
+      <p class="teoria-sources">
+        Fuentes: DCML Harmony Annotation Standard · Piston 1941 · music21 pitch-class analysis
+      </p>
+    </section>
+
+    <nav class="guia-nav">
+      <a href="funcion-armonica.html">← Función armónica</a>
+      <a href="prestamo-modal.html">Siguiente: Préstamo modal →</a>
+    </nav>
+  </main>
+
+  <script src="../js/pyodide-playground.js"></script>
+</body>
+</html>

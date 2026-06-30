@@ -4,7 +4,7 @@
  */
 (function (global) {
   const PYODIDE_URL = "https://cdn.jsdelivr.net/pyodide/v0.27.7/full/";
-  const WHEEL_NAME = "jazz21-0.1.0-py3-none-any.whl";
+  const WHEEL_NAME = "jazz21-0.2.0-py3-none-any.whl";
   const GALLERY_MARKER = "__JAZZ21_GALLERY__";
 
   let pyodidePromise = null;

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Campo Armónico · Armonía · jazz21</title>
+  <link rel="stylesheet" href="../css/biblioteca.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">jazz21 <span>· armonía</span></div>
+    <nav class="nav-links"><a href="../index.html">Inicio</a></nav>
+  </header>
+
+  <div class="guia-main">
+    <a class="back-link" href="cuatriadas.html">← Cuatriadas</a>
+    <h1>Campo Armónico</h1>
+    <p class="lead">
+      Elige una tonalidad y modo — el código se actualiza en tiempo real.
+      Edita el código y pulsa Ejecutar para ver la respuesta de jazz21.
+      Escribe acordes a la derecha y verás su grado inferido al instante.
+    </p>
+  </div>
+
+  <!-- ——— Layout split: código ← → UI ——— -->
+  <div class="campo-split-section">
+    <div class="campo-split">
+
+      <!-- ── IZQUIERDA: playground ── -->
+      <div class="campo-code-col">
+        <div class="campo-col-header">
+          <span class="campo-col-title">Código</span>
+          <span class="campo-col-hint">Editar y ejecutar ↓</span>
+        </div>
+        <div class="playground campo-playground" data-playground>
+          <div class="pg-toolbar">
+            <button type="button" class="pg-run">Ejecutar</button>
+            <button type="button" class="pg-reset pg-secondary">Reiniciar</button>
+            <span class="pg-status"></span>
+          </div>
+          <textarea class="pg-editor">import jazz21                               # cargamos la librería
+
+tonalidad = "C"                             # tonalidad elegida
+
+for acorde in jazz21.triadas_de(tonalidad):  # campo diatónico completo
+    notas   = ", ".join(acorde["notas"])     # notas del acorde
+    funcion = acorde["funcion"]             # función inferida
+    grado   = acorde["grado"]               # grado romano
+    print(f'{grado:<5} {acorde["simbolo"]:<6} {funcion:<14}  [{notas}]')</textarea>
+          <p class="pg-output-label">Salida</p>
+          <pre class="pg-output"></pre>
+        </div>
+      </div>
+
+      <!-- ── DERECHA: panel interactivo + chips ── -->
+      <div class="campo-ui-col">
+        <div class="campo-col-header">
+          <span class="campo-col-title">Explorador</span>
+          <span class="campo-col-hint">Cambios reflejados en el código ←</span>
+        </div>
+
+        <div class="campo-panel">
+          <div class="campo-fila">
+            <span class="campo-label">Tonalidad</span>
+            <select id="tonalidad-select">
+              <option>C</option>
+              <option>G</option>
+              <option>D</option>
+              <option>A</option>
+              <option>E</option>
+              <option>B</option>
+              <option>F#</option>
+              <option>Db</option>
+              <option>Ab</option>
+              <option>Eb</option>
+              <option>Bb</option>
+              <option>F</option>
+            </select>
+          </div>
+          <div class="campo-fila campo-fila-modo">
+            <span class="campo-label">Modo</span>
+            <div class="campo-modo-control">
+              <div class="modo-family-toggle">
+                <button class="modo-family-btn active" data-family="major">Mayor</button>
+                <button class="modo-family-btn" data-family="minor">Menor</button>
+              </div>
+              <div class="modo-chips" id="modo-chips"></div>
+              <div class="campo-escala-notas" id="campo-escala-notas"></div>
+            </div>
+          </div>
+          <div class="campo-fila">
+            <span class="campo-label">Acordes</span>
+            <input
+              id="acordes-input"
+              type="text"
+              placeholder="Cargando jazz21…"
+              disabled
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <span id="campo-status"></span>
+          </div>
+        </div>
+
+        <div class="campo-resultado" id="campo-resultado">
+          <p class="campo-placeholder">Escribe acordes separados por espacios…</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ——— Explicación ——— -->
+  <div class="guia-main">
+    <div class="clasica-aside">
+      <span class="aside-label">♩ Apunte · Acordes no diatónicos</span>
+      <p>
+        Un acorde no diatónico no es un error — es una decisión.
+        En jazz, los préstamos del modo paralelo (ej. IV menor en mayor),
+        las dominantes secundarias (V7/II, V7/IV…) y las sustituciones de tritono
+        son movimientos habituales que enriquecen el campo armónico.
+        El aviso es un punto de partida para entender <em>por qué</em> suena distinto.
+      </p>
+    </div>
+
+    <nav class="guia-nav">
+      <a href="cuatriadas.html">← Cuatriadas</a>
+      <a href="../index.html">Biblioteca →</a>
+    </nav>
+  </div>
+
+  <footer class="site-footer">jazz21 · armonía</footer>
+
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+  <script src="../js/pyodide-playground.js"></script>
+  <script src="../js/campo-armonico.js"></script>
+  <script src="../js/cm-python.js"></script>
+</body>
+</html>

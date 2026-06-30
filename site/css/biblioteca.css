@@ -342,3 +342,476 @@ code { font-family: var(--mono); font-size: 0.88em; }
   gap: 1rem;
   font-size: 0.9rem;
 }
+
+/* —— CodeMirror dentro de playground —— */
+.playground .CodeMirror {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  min-height: 11rem;
+  height: auto;
+  border: none;
+  border-radius: 0;
+}
+
+.playground .CodeMirror-scroll {
+  min-height: 11rem;
+}
+
+.playground .CodeMirror-gutters {
+  border-right: 1px solid rgba(255,255,255,0.07);
+}
+
+/* —— Campo Armónico —— */
+/* ——— Split layout ——— */
+.campo-split-section {
+  max-width: 82rem;
+  margin: 0 auto;
+  padding: 0 1.5rem 2.5rem;
+}
+
+.campo-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .campo-split { grid-template-columns: 1fr; }
+}
+
+.campo-col-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  margin-bottom: 0.6rem;
+}
+
+.campo-col-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.campo-col-hint {
+  font-size: 0.7rem;
+  color: var(--border);
+  letter-spacing: 0.02em;
+}
+
+/* el playground dentro del split no necesita margen propio */
+.campo-playground { margin-top: 0; }
+
+/* ——— Panel interactivo ——— */
+.campo-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.25rem 1rem;
+  margin: 0 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.campo-fila {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.campo-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  min-width: 6rem;
+}
+
+#tonalidad-select {
+  background: #0a0e14;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.4rem 0.65rem;
+  font-family: var(--mono);
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+#acordes-input {
+  flex: 1;
+  min-width: 14rem;
+  background: #0a0e14;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.45rem 0.75rem;
+  font-family: var(--mono);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  transition: border-color 0.15s;
+}
+
+#acordes-input:focus {
+  outline: none;
+  border-color: var(--accent-dim);
+}
+
+#acordes-input:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+#campo-status {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-left: auto;
+}
+
+.campo-resultado {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  min-height: 4.5rem;
+  padding: 1rem 0;
+  align-items: flex-start;
+}
+
+.campo-placeholder {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin: 0;
+  padding-top: 0.5rem;
+}
+
+@keyframes pokeball-shake {
+  0%   { transform: rotate(0deg); }
+  8%   { transform: rotate(-20deg); }
+  18%  { transform: rotate(20deg); }
+  26%  { transform: rotate(0deg); }
+  33%  { transform: rotate(0deg); }
+  41%  { transform: rotate(-20deg); }
+  51%  { transform: rotate(20deg); }
+  59%  { transform: rotate(0deg); }
+  66%  { transform: rotate(0deg); }
+  74%  { transform: rotate(-15deg); }
+  84%  { transform: rotate(15deg); }
+  92%  { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.campo-chip {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  min-width: 4.5rem;
+  cursor: pointer;
+  transition: transform 0.12s;
+  overflow: hidden;
+  transform-origin: center 85%;
+}
+
+.campo-chip:not(.chip-shaking):hover { transform: translateY(-2px); }
+
+.chip-shaking {
+  animation: pokeball-shake 1.5s ease-in-out;
+}
+
+.chip-face {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.55rem 0.9rem;
+}
+
+.chip-simbolo {
+  font-family: var(--mono);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.chip-meta {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.2rem;
+  opacity: 0.85;
+}
+
+/* Detail panel — oculto por defecto */
+.chip-detail {
+  display: none;
+  padding: 0.55rem 0.75rem 0.65rem;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  font-size: 0.75rem;
+  text-align: left;
+  min-width: 10rem;
+}
+
+.campo-chip.chip-open .chip-detail { display: block; }
+.campo-chip.chip-open { transform: none; }
+
+.chip-detail-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.35rem;
+}
+
+.chip-detail-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.6;
+  margin-bottom: 0.1rem;
+}
+
+.chip-detail-val {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  opacity: 0.9;
+}
+
+/* Hints de intercambio modal */
+.chip-hints {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.35rem;
+}
+
+.chip-hint {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.45rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.chip-hint-modal {
+  background: rgba(189, 147, 249, 0.15);
+  color: #bd93f9;
+}
+
+.chip-hint-rel {
+  background: rgba(80, 200, 200, 0.12);
+  color: #50c8c8;
+}
+
+/* Colores por función */
+.chip-tonica {
+  background: rgba(77, 159, 255, 0.12);
+  border-color: rgba(77, 159, 255, 0.3);
+  color: #4d9fff;
+}
+
+.chip-subdominante {
+  background: rgba(61, 214, 140, 0.1);
+  border-color: rgba(61, 214, 140, 0.25);
+  color: #3dd68c;
+}
+
+.chip-dominante {
+  background: rgba(224, 108, 117, 0.1);
+  border-color: rgba(224, 108, 117, 0.25);
+  color: #e06c75;
+}
+
+.chip-nodia {
+  background: rgba(200, 144, 42, 0.1);
+  border-color: rgba(200, 144, 42, 0.3);
+  color: #c8902a;
+}
+
+/* Dominante secundaria: inequívoca pero fuera de la escala */
+.chip-secdom {
+  background: rgba(255, 184, 108, 0.1);
+  border-color: rgba(255, 184, 108, 0.3);
+  color: #ffb86c;
+}
+
+.chip-fn-secdom {
+  color: #ffb86c;
+  font-weight: 600;
+}
+
+.chip-fn-unknown .chip-detail-val {
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Chip diatónico modal (sin función T/SD/D) */
+.chip-modal {
+  background: rgba(100, 210, 210, 0.1);
+  border-color: rgba(100, 210, 210, 0.25);
+  color: #64d2d2;
+}
+
+/* Fila de modo */
+.campo-fila-modo { align-items: flex-start; }
+
+.campo-modo-control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.modo-family-toggle {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.modo-family-btn {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.2rem 0.65rem;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.modo-family-btn:hover {
+  border-color: var(--accent-dim);
+  color: var(--text);
+}
+
+.modo-family-btn.active {
+  background: rgba(77, 159, 255, 0.15);
+  border-color: var(--accent-dim);
+  color: #4d9fff;
+}
+
+.modo-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.modo-chip {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.18rem 0.55rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+
+.modo-chip:hover {
+  border-color: var(--accent-dim);
+  color: var(--text);
+}
+
+.modo-chip-active {
+  background: rgba(100, 210, 210, 0.12);
+  border-color: rgba(100, 210, 210, 0.4);
+  color: #64d2d2;
+}
+
+/* Notas de la escala — display sutil bajo los modo-chips */
+.campo-escala-notas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.15rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  opacity: 0.5;
+  margin-top: 0.1rem;
+}
+
+.campo-escala-notas .esc-nota {
+  color: var(--muted);
+}
+
+.campo-escala-notas .esc-tonica {
+  color: var(--text);
+  opacity: 0.85;
+}
+
+.campo-escala-notas .esc-sep {
+  color: var(--border);
+  font-size: 0.65rem;
+  padding: 0 0.1rem;
+}
+
+.campo-error {
+  font-size: 0.85rem;
+  color: #e06c75;
+  font-family: var(--mono);
+}
+
+/* —— Armonía —— */
+.clasica-aside {
+  background: rgba(255, 185, 50, 0.07);
+  border-left: 3px solid #c8902a;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 0.85rem 1rem;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+.clasica-aside .aside-label {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #c8902a;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.clasica-aside p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.armonia-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin: 1.25rem 0;
+}
+
+.armonia-table th {
+  text-align: left;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  padding: 0.4rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.armonia-table td {
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid rgba(42, 53, 72, 0.6);
+  color: var(--text);
+}
+
+.armonia-table tr:last-child td { border-bottom: none; }
+
+.armonia-table .fn-tonica   { color: #4d9fff; }
+.armonia-table .fn-subdominante { color: #3dd68c; }
+.armonia-table .fn-dominante { color: #e06c75; }
+
+.grado-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.05rem 0.4rem;
+  color: var(--muted);
+}
