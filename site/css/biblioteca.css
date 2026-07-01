@@ -528,6 +528,21 @@ main {
   color: var(--accent);
 }
 
+.prog-audio-ios-hint {
+  margin: 0.5rem 0 0;
+  padding: 0.55rem 0.65rem;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: var(--text);
+  background: rgba(255, 193, 77, 0.1);
+  border: 1px solid rgba(255, 193, 77, 0.35);
+  border-radius: 6px;
+}
+
+.prog-audio-ios-hint strong {
+  font-weight: 600;
+}
+
 @media (max-width: 520px) {
   .prog-audio-field {
     grid-template-columns: 1fr;

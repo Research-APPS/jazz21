@@ -16,6 +16,10 @@
     if (/iPhone|iPad|iPod|Android/i.test(ua)) return true;
     return navigator.maxTouchPoints > 1 && window.matchMedia("(pointer: coarse)").matches;
   })();
+  const IS_IPHONE = (() => {
+    const ua = navigator.userAgent || "";
+    return /iPhone|iPod/i.test(ua) && !/iPad/i.test(ua);
+  })();
   const AUDIO_LOOKAHEAD = USE_DIRECT_SCHEDULER ? 0.12 : 0.05;
 
   let progressions = [];
@@ -437,6 +441,7 @@
           </fieldset>
         </details>
         <p class="prog-audio-hint">Motor: <a href="https://tonejs.github.io/" target="_blank" rel="noopener">Tone.js</a> 14.7.77 · Los ajustes se guardan en este navegador.</p>
+        ${IS_IPHONE ? `<p class="prog-audio-ios-hint">iPhone: Safari no reproduce audio sintetizado por el altavoz con el <strong>modo silencio</strong> activado (interruptor lateral). Desactívalo o usa auriculares.</p>` : ""}
       </div>`;
   }
 
@@ -591,19 +596,38 @@ def _widget_sugerencias(tonalidad, simbolos, indice, modo):
     if (ctx.state !== "running") {
       await ctx.resume();
     }
-    if (ctx.state === "running" && USE_DIRECT_SCHEDULER && synth) {
-      disposeSynth();
+    if (ctx.state === "running" && !synth) {
+      getSynth();
     }
-    getSynth();
     return ctx.state === "running";
+  }
+
+  function recoverPlaybackAfterSuspend() {
+    if (!isPlaying || !playbackSession?.boundaryCallback) return;
+    clearPendingChordBoundary();
+    scheduleChordBoundary(playbackSession.boundaryCallback);
   }
 
   function installAudioUnlock() {
     if (audioUnlockInstalled) return;
     audioUnlockInstalled = true;
-    const warm = () => { ensureAudioUnlocked().catch(() => {}); };
-    document.addEventListener("touchstart", warm, { passive: true, capture: true });
-    document.addEventListener("touchend", warm, { passive: true, capture: true });
+
+    ensureTone().then(() => {
+      const raw = Tone.getContext().rawContext;
+      raw.addEventListener("statechange", () => {
+        if (raw.state !== "suspended" || !isPlaying) return;
+        void raw.resume().then(() => {
+          if (raw.state === "running") recoverPlaybackAfterSuspend();
+        });
+      });
+    }).catch(() => {});
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden || !isPlaying) return;
+      void ensureAudioUnlocked().then((ok) => {
+        if (ok) recoverPlaybackAfterSuspend();
+      });
+    });
   }
 
   function resetPlaybackSchedule() {
@@ -924,7 +948,9 @@ def _widget_sugerencias(tonalidad, simbolos, indice, modo):
       const unlocked = await ensureAudioUnlocked();
       if (!unlocked) {
         playBtn.textContent = "▶ Reproducir";
-        paletteError = "Toca Reproducir de nuevo para activar el audio (iOS)";
+        paletteError = IS_IPHONE
+          ? "Sin audio — desactiva el modo silencio del iPhone (interruptor lateral) o usa auriculares"
+          : "Toca Reproducir de nuevo para activar el audio";
         renderProg(container, prog);
         return;
       }
