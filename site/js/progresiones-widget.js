@@ -10,6 +10,13 @@
     locrian: "Locrio",
   };
   const QUALITY_CYCLE = ["", "m", "7", "maj7", "m7", "dim", "m7b5"];
+  const TONE_JS_URL = "https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js";
+  const USE_DIRECT_SCHEDULER = (() => {
+    const ua = navigator.userAgent || "";
+    if (/iPhone|iPad|iPod|Android/i.test(ua)) return true;
+    return navigator.maxTouchPoints > 1 && window.matchMedia("(pointer: coarse)").matches;
+  })();
+  const AUDIO_LOOKAHEAD = USE_DIRECT_SCHEDULER ? 0.12 : 0.05;
 
   let progressions = [];
   let currentIndex = 0;
@@ -21,6 +28,7 @@
   let scheduledEvents = [];
   let playbackSession = null;
   let toneReady = false;
+  let audioUnlockInstalled = false;
   let pyInstance = null;
   let pyHelperReady = false;
   let pyBootPromise = null;
@@ -190,20 +198,34 @@
 
   function playChordNotes(chord, time) {
     prepareSynthForChord();
-    if (!chord.notas?.length || !synth) return;
-    synth.triggerAttackRelease(chord.notas, chordDurationSeconds() * audioSettings.gate, time);
+    if (!chord.notas?.length || !synth || typeof Tone === "undefined") return;
+    const when = Math.max(time, Tone.now() + AUDIO_LOOKAHEAD);
+    synth.triggerAttackRelease(chord.notas, chordDurationSeconds() * audioSettings.gate, when);
   }
 
   function clearPendingChordBoundary() {
-    if (!playbackSession?.pendingEventId || typeof Tone === "undefined") return;
-    Tone.Transport.clear(playbackSession.pendingEventId);
-    playbackSession.pendingEventId = null;
+    if (playbackSession?.pendingTimeout != null) {
+      clearTimeout(playbackSession.pendingTimeout);
+      playbackSession.pendingTimeout = null;
+    }
+    if (playbackSession?.pendingEventId != null && typeof Tone !== "undefined") {
+      Tone.Transport.clear(playbackSession.pendingEventId);
+      playbackSession.pendingEventId = null;
+    }
+  }
+
+  function chordElapsedSeconds() {
+    if (!playbackSession) return 0;
+    if (USE_DIRECT_SCHEDULER) {
+      return (performance.now() - (playbackSession.lastChordStartPerf || 0)) / 1000;
+    }
+    return Tone.Transport.seconds - (playbackSession.lastChordStartTime || 0);
   }
 
   function remainingInCurrentChord() {
     if (!playbackSession) return chordDurationSeconds();
-    const elapsed = Tone.Transport.seconds - (playbackSession.lastChordStartTime || 0);
-    return Math.max(0.02, (playbackSession.activeChordDur || chordDurationSeconds()) - elapsed);
+    const active = playbackSession.activeChordDur || chordDurationSeconds();
+    return Math.max(0.02, active - chordElapsedSeconds());
   }
 
   function scheduleChordBoundary(callback) {
@@ -211,12 +233,31 @@
     clearPendingChordBoundary();
     playbackSession.boundaryCallback = callback;
     const wait = remainingInCurrentChord();
+    if (USE_DIRECT_SCHEDULER) {
+      playbackSession.pendingTimeout = setTimeout(() => {
+        if (!isPlaying || !playbackSession) return;
+        playbackSession.pendingTimeout = null;
+        callback();
+      }, wait * 1000);
+      return;
+    }
     const id = Tone.Transport.schedule(() => {
       if (playbackSession) playbackSession.pendingEventId = null;
       callback();
     }, `+${wait}`);
     playbackSession.pendingEventId = id;
     scheduledEvents.push(id);
+  }
+
+  function scheduleUiStep(onStep, idx, audioTime) {
+    if (USE_DIRECT_SCHEDULER) {
+      const delay = Math.max(0, (audioTime - Tone.now()) * 1000);
+      setTimeout(() => {
+        if (isPlaying) onStep(idx);
+      }, delay);
+      return;
+    }
+    Tone.Draw.schedule(() => onStep(idx), audioTime);
   }
 
   function playChordStep(immediate) {
@@ -227,13 +268,14 @@
 
     const idx = playbackSession.chordIndex;
     const chord = chords[idx];
-    const time = Tone.now() + (immediate ? 0.05 : 0);
+    const time = Tone.now() + (immediate ? AUDIO_LOOKAHEAD : 0);
 
     playbackSession.lastChordStartTime = Tone.Transport.seconds;
+    playbackSession.lastChordStartPerf = performance.now();
     playbackSession.activeChordDur = chordDurationSeconds();
 
     playChordNotes(chord, time);
-    Tone.Draw.schedule(() => onStep(idx), time);
+    scheduleUiStep(onStep, idx, time);
 
     const nextIdx = (idx + 1) % chords.length;
     const finishedCycle = nextIdx === 0;
@@ -521,18 +563,57 @@ def _widget_sugerencias(tonalidad, simbolos, indice, modo):
   // ── Audio ────────────────────────────────────────────────────────────────
 
   function ensureTone() {
-    if (toneReady) return Promise.resolve();
-    return new Promise((resolve) => {
+    if (toneReady && typeof Tone !== "undefined") return Promise.resolve();
+    return new Promise((resolve, reject) => {
       if (typeof Tone !== "undefined") {
         toneReady = true;
         resolve();
         return;
       }
+      const existing = document.querySelector(`script[src="${TONE_JS_URL}"]`);
+      if (existing) {
+        existing.addEventListener("load", () => { toneReady = true; resolve(); }, { once: true });
+        existing.addEventListener("error", reject, { once: true });
+        return;
+      }
       const s = document.createElement("script");
-      s.src = "https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js";
+      s.src = TONE_JS_URL;
       s.onload = () => { toneReady = true; resolve(); };
+      s.onerror = reject;
       document.head.appendChild(s);
     });
+  }
+
+  async function ensureAudioUnlocked() {
+    await ensureTone();
+    await Tone.start();
+    const ctx = Tone.getContext();
+    if (ctx.state !== "running") {
+      await ctx.resume();
+    }
+    if (ctx.state === "running" && USE_DIRECT_SCHEDULER && synth) {
+      disposeSynth();
+    }
+    getSynth();
+    return ctx.state === "running";
+  }
+
+  function installAudioUnlock() {
+    if (audioUnlockInstalled) return;
+    audioUnlockInstalled = true;
+    const warm = () => { ensureAudioUnlocked().catch(() => {}); };
+    document.addEventListener("touchstart", warm, { passive: true, capture: true });
+    document.addEventListener("touchend", warm, { passive: true, capture: true });
+  }
+
+  function resetPlaybackSchedule() {
+    clearPendingChordBoundary();
+    if (!USE_DIRECT_SCHEDULER && typeof Tone !== "undefined") {
+      scheduledEvents.forEach((id) => Tone.Transport.clear(id));
+    }
+    scheduledEvents = [];
+    synth?.releaseAll();
+    playbackSession = null;
   }
 
   let synth = null;
@@ -561,23 +642,19 @@ def _widget_sugerencias(tonalidad, simbolos, indice, modo):
 
   function stopAudio() {
     isPlaying = false;
-    if (typeof Tone !== "undefined") {
-      clearPendingChordBoundary();
+    resetPlaybackSchedule();
+    if (!USE_DIRECT_SCHEDULER && typeof Tone !== "undefined") {
       Tone.Transport.stop();
       Tone.Transport.cancel();
       Tone.Transport.loop = false;
-      scheduledEvents = [];
-      const s = getSynth();
-      s?.releaseAll();
     }
-    playbackSession = null;
-    scheduledEvents = [];
   }
 
   async function playProgression(prog, onStep, onStop) {
-    await ensureTone();
-    await Tone.start();
-    stopAudio();
+    const unlocked = await ensureAudioUnlocked();
+    if (!unlocked) return;
+    isPlaying = false;
+    resetPlaybackSchedule();
     isPlaying = true;
     playbackSession = {
       prog,
@@ -585,12 +662,16 @@ def _widget_sugerencias(tonalidad, simbolos, indice, modo):
       onStop: onStop || null,
       chordIndex: 0,
       pendingEventId: null,
+      pendingTimeout: null,
       lastChordStartTime: 0,
+      lastChordStartPerf: 0,
       activeChordDur: chordDurationSeconds(),
     };
-    updateTransportLoop(prog);
-    if (!Tone.Transport.state || Tone.Transport.state === "stopped") {
-      Tone.Transport.start();
+    if (!USE_DIRECT_SCHEDULER) {
+      updateTransportLoop(prog);
+      if (Tone.Transport.state !== "started") {
+        Tone.Transport.start();
+      }
     }
     playChordStep(true);
   }
@@ -840,6 +921,13 @@ def _widget_sugerencias(tonalidad, simbolos, indice, modo):
         return;
       }
       playBtn.textContent = "■ Parar";
+      const unlocked = await ensureAudioUnlocked();
+      if (!unlocked) {
+        playBtn.textContent = "▶ Reproducir";
+        paletteError = "Toca Reproducir de nuevo para activar el audio (iOS)";
+        renderProg(container, prog);
+        return;
+      }
       await playProgression(
         prog,
         (stepIndex) => {
@@ -1168,6 +1256,9 @@ def _widget_sugerencias(tonalidad, simbolos, indice, modo):
   async function init() {
     const container = document.getElementById("prog-widget");
     if (!container) return;
+
+    installAudioUnlock();
+    if (typeof Tone !== "undefined") toneReady = true;
 
     libraryApiAvailable = await detectLibraryApi();
     injectLibraryNav();
